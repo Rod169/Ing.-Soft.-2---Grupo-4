@@ -1,0 +1,16 @@
+[
+  {
+    "nombre": "A",
+    "apellido": "A",
+    "email": "A@A",
+    "password": "A",
+    "tipo": "proveedor"
+  },
+  {
+    "nombre": "B",
+    "apellido": "B",
+    "email": "B@B",
+    "password": "B",
+    "tipo": "empresa"
+  }
+]
