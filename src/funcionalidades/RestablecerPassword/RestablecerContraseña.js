@@ -1,22 +1,20 @@
-// Importa React y useState desde la biblioteca de React.
-import React, { useState } from 'react';
-// Importa el archivo de estilos CSS para el componente.
-import './RestablecerContraseña.css';
-// Importa el hook useNavigate para la navegación entre rutas.
-import { useNavigate } from 'react-router-dom';
+// Este componente maneja la lógica de restablecimiento de contraseña.
+// Cumple con el principio OCP al permitir la extensión del comportamiento
+// a través del uso de componentes y funciones de callback sin modificar
+// su lógica existente.
+import React, { useState } from 'react'; // Importa React y useState desde la biblioteca de React.
+import './RestablecerContraseña.css'; // Importa el archivo de estilos CSS para el componente.
+import { useNavigate } from 'react-router-dom'; // Importa el hook useNavigate para la navegación entre rutas.
+import FormularioReestablecimiento from './FormularioReestablecimiento'; // Importa el componente de formulario.
 
-// Define el componente funcional RestablecerContraseña.
 const RestablecerContraseña = () => {
-  // Declara los estados para el email, la nueva contraseña y el estado de envío del enlace de restablecimiento.
   const [email, setEmail] = useState(''); // Estado para almacenar el email ingresado.
   const [newPassword, setNewPassword] = useState(''); // Estado para almacenar la nueva contraseña.
   const [isResetLinkSent, setIsResetLinkSent] = useState(false); // Estado para controlar si se ha enviado el enlace de restablecimiento.
   const navigate = useNavigate(); // Hook para navegar entre rutas.
 
   // Función que maneja la solicitud de restablecimiento de contraseña.
-  const handleResetRequest = (e) => {
-    e.preventDefault(); // Previene el comportamiento por defecto del formulario (recargar la página).
-
+  const handleResetRequest = (email) => {
     // Recupera la lista de usuarios del localStorage, si no existe, crea un arreglo vacío.
     const users = JSON.parse(localStorage.getItem('users')) || [];
     // Busca el usuario que coincide con el email ingresado.
@@ -38,7 +36,7 @@ const RestablecerContraseña = () => {
     // Recupera la lista de usuarios del localStorage.
     let users = JSON.parse(localStorage.getItem('users')) || [];
     // Busca el índice del usuario que coincide con el email ingresado.
-    const userIndex = users.findIndex(user => user.email === email);
+    const userIndex = users.findIndex(user => user.email === email); // Aquí se usa la variable email correctamente.
 
     // Si se encuentra el usuario, actualiza su contraseña y guarda los cambios en el localStorage.
     if (userIndex !== -1) {
@@ -59,19 +57,7 @@ const RestablecerContraseña = () => {
       </div>
       <div className="reset-password-form"> {/* Sección del formulario */}
         {!isResetLinkSent ? ( // Si no se ha enviado el enlace de restablecimiento
-          <form onSubmit={handleResetRequest}> {/* Formulario para solicitar el enlace */}
-            <h2>Restablecer Contraseña</h2> {/* Título del formulario */}
-            <label htmlFor="email">Ingresa tu correo electrónico</label> {/* Etiqueta para el campo de email */}
-            <input
-              type="email"
-              id="email"
-              placeholder="Email"
-              value={email} // Valor del input vinculado al estado email
-              onChange={(e) => setEmail(e.target.value)} // Actualiza el estado email en función de la entrada del usuario
-              required // Campo obligatorio
-            />
-            <button type="submit">Enviar enlace de restablecimiento</button> {/* Botón para enviar el formulario */}
-          </form>
+          <FormularioReestablecimiento onResetRequest={handleResetRequest} /> // Usa el nuevo componente para el formulario
         ) : ( // Si el enlace ha sido enviado
           <form onSubmit={handlePasswordReset}> {/* Formulario para ingresar la nueva contraseña */}
             <h2>Ingresa Nueva Contraseña</h2> {/* Título del formulario */}
