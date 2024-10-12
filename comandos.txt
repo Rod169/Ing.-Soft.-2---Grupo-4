@@ -1,0 +1,16 @@
+Comandos Git:
+git init
+git remote add origin https://github.com/Rod169/Ing.-Soft.-2---Grupo-4.git
+git pull origin arreglologinregister
+git checkout -b arreglologinregister
+git status
+git add .
+git commit -m ""
+git push origin arreglologinregister
+exit merge: esc + shift + z + z
+
+Instalar dependencias de react:
+npm install react-router-dom
+
+Comandos de react:
+npm start
