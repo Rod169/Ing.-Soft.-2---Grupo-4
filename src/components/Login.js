@@ -9,6 +9,7 @@ const Login = () => {
   const [is2FA, setIs2FA] = useState(false); // Manejamos si el 2FA está activo
   const [verificationCode, setVerificationCode] = useState('');
   const [generatedCode, setGeneratedCode] = useState('');
+  const [error, setError] = useState(''); // Estado para manejar errores
   const navigate = useNavigate();
 
   // Manejamos el login usando el servicio de autenticación
@@ -20,9 +21,10 @@ const Login = () => {
       const code = AuthService.generate2FACode(); // Generamos el código de 2FA
       setGeneratedCode(code);
       setIs2FA(true); // Activamos el flujo de 2FA
+      setError(''); // Limpiar cualquier error previo
       alert(`Tu código de verificación es: ${code}`); // Simulamos el envío del código de verificación
     } else {
-      alert('Credenciales incorrectas');
+      setError('Credenciales incorrectas'); // Establecer mensaje de error
     }
   };
 
@@ -41,7 +43,7 @@ const Login = () => {
 
       navigate('/inicio'); // Redirigir a la página de inicio
     } else {
-      alert('Código de verificación incorrecto');
+      setError('Código de verificación incorrecto'); // Establecer mensaje de error
     }
   };
 
@@ -55,6 +57,7 @@ const Login = () => {
         <img src={process.env.PUBLIC_URL + '/corn-field.jpg'} alt="Corn Field" />
       </div>
       <div className="login-form">
+        {error && <p className="error-message">{error}</p>} {/* Mostrar el mensaje de error si existe */}
         {!is2FA ? (
           <form onSubmit={handleLogin}>
             <h2>Log In</h2>
