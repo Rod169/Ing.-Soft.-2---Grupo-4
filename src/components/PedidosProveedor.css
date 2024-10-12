@@ -1,242 +1,234 @@
 .pedidos-container {
-    padding: 100px 20px; /* Reducir el padding superior para acercar más la página */
-    text-align: center;
+    padding: 100px 20px; /* Espaciado superior e inferior, se reduce el padding superior para acercar más la página */
+    text-align: center; /* Alinea el texto al centro */
 }
 
 .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -20px; /* Reducir el margen superior */
-    margin-bottom: 30px; /* Aumentar el margen inferior */
-    gap: 10px;
+    display: flex; /* Utiliza un layout flexible */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    margin-top: -20px; /* Reduce el margen superior */
+    margin-bottom: 30px; /* Aumenta el margen inferior */
+    gap: 10px; /* Espacio entre los elementos del contenedor */
 }
 
 .search-bar input, .search-container select, .search-container button {
-    height: 50px;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 10px;
+    height: 50px; /* Altura uniforme para los elementos de la barra de búsqueda */
+    box-sizing: border-box; /* Incluye el padding y el border en el total del ancho/alto */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 10px; /* Padding interno para mejor apariencia */
 }
 
 .search-bar {
-    position: relative;
-    width: 100%;
-    max-width: 1400px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
+    position: relative; /* Establece la posición relativa para posicionar el icono de búsqueda */
+    width: 100%; /* Ancho total del contenedor */
+    max-width: 1400px; /* Ancho máximo del contenedor */
+    background-color: #f5f5f5; /* Color de fondo para la barra de búsqueda */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 5px; /* Espaciado interno de la barra */
+    display: flex; /* Utiliza un layout flexible dentro de la barra */
+    align-items: center; /* Centra verticalmente los elementos */
 }
 
 .search-bar input {
-    padding: 15px 20px;
-    padding-left: 50px;
-    border: none;
-    width: 100%;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 14px;
-    margin: 0;
+    padding: 15px 20px; /* Padding interno del campo de búsqueda */
+    padding-left: 50px; /* Espacio a la izquierda para el icono de búsqueda */
+    border: none; /* Sin borde */
+    width: 100%; /* Ancho total del campo de entrada */
+    background-color: #f5f5f5; /* Color de fondo */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Incluye el padding y el border en el total */
+    font-size: 14px; /* Tamaño de la fuente */
+    margin: 0; /* Elimina el margen por defecto */
 }
 
 .search-icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #888;
+    position: absolute; /* Posiciona el icono en relación a la barra de búsqueda */
+    left: 10px; /* Espacio desde la izquierda */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajusta el centrado en base a su altura */
+    font-size: 18px; /* Tamaño del icono */
+    color: #888; /* Color gris para el icono */
 }
 
 .search-container select {
-    padding: 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    font-size: 14px;
-    height: 50px;
-    margin: 0;
+    padding: 0 15px; /* Padding lateral para el selector */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f5f5f5; /* Color de fondo del selector */
+    font-size: 14px; /* Tamaño de la fuente */
+    height: 50px; /* Altura del selector */
+    margin: 0; /* Elimina el margen por defecto */
 }
 
 .search-container button {
-    padding: 0 25px;
-    background-color: #007b5e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    margin: 0;
+    padding: 0 25px; /* Padding lateral para el botón */
+    background-color: #007b5e; /* Color de fondo del botón */
+    color: white; /* Color del texto en el botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    height: 50px; /* Altura del botón */
+    display: flex; /* Utiliza un layout flexible dentro del botón */
+    align-items: center; /* Centra verticalmente el contenido del botón */
+    margin: 0; /* Elimina el margen por defecto */
 }
 
 .search-container button:hover {
-    background-color: #005b47;
+    background-color: #005b47; /* Color de fondo al pasar el ratón por encima del botón */
 }
 
-/* Centrar el título completamente y mantener el botón a la derecha */
+/* Centra el título completamente y mantiene el botón a la derecha */
 .header-pedidos {
-    display: flex;
-    justify-content: center; /* Centra el título */
-    align-items: center;
-    margin-bottom: 30px;
-    position: relative;
+    display: flex; /* Utiliza un layout flexible */
+    justify-content: center; /* Centra el título horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 30px; /* Margen inferior para el encabezado */
+    position: relative; /* Establece la posición relativa para el posicionamiento del título */
 }
 
 .titulo {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: #007b5e;
-    margin: 0;
-    position: absolute;
+    font-size: 1.2rem; /* Tamaño del texto del título */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    color: #007b5e; /* Color del texto */
+    margin: 0; /* Elimina el margen por defecto */
+    position: absolute; /* Posiciona el título absolutamente dentro del encabezado */
     left: 50%; /* Centra horizontalmente */
     transform: translateX(-50%); /* Ajusta el centrado con la mitad del ancho */
 }
 
-.btn-crear-contrato {
-    padding: 15px 20px;
-    background-color: #007b5e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 10px;
+.btn-crear-contrato, .btn-notificaciones {
+    padding: 15px 20px; /* Padding interno para los botones */
+    background-color: #007b5e; /* Color de fondo del botón */
+    color: white; /* Color del texto en el botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
-.btn-notificaciones {
-    padding: 15px 20px;
-    background-color: #007b5e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
+
 .botones-header {
-    display: flex;
-    justify-content: flex-end;
+    display: flex; /* Utiliza un layout flexible */
+    justify-content: flex-end; /* Alinea los botones a la derecha */
     gap: 10px; /* Espacio entre los botones */
-    position: absolute;
-    right: 20px;
+    position: absolute; /* Posiciona los botones absolutamente dentro del encabezado */
+    right: 20px; /* Espacio desde la derecha */
 }
-.btn-crear-contrato:hover {
-    background-color: #005b47;
+
+.btn-crear-contrato:hover, .btn-notificaciones:hover {
+    background-color: #005b47; /* Color de fondo al pasar el ratón por encima del botón */
 }
 
 .titulo-mis-contratos {
-    margin-top: -20px;  /* Ajuste del margen superior solo para Mis contratos */
-    font-size: 2.4rem;
-    color: #000;
-    text-align: center;
-    margin-bottom: 30px;
+    margin-top: -20px;  /* Ajuste del margen superior solo para "Mis contratos" */
+    font-size: 2.4rem; /* Tamaño del texto */
+    color: #000; /* Color negro para el texto */
+    text-align: center; /* Alinea el texto al centro */
+    margin-bottom: 30px; /* Margen inferior para el título */
 }
 
 .productos-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Mantiene cuatro columnas */
-    gap: 15px; /* Aumenta el espacio entre los contratos */
-    justify-items: center;
+    display: grid; /* Utiliza un layout de cuadrícula */
+    grid-template-columns: repeat(4, 1fr); /* Mantiene cuatro columnas en la cuadrícula */
+    gap: 15px; /* Espacio entre los contratos */
+    justify-items: center; /* Centra los elementos dentro de cada celda de la cuadrícula */
 }
 
 .producto-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 30px; /* Añade espacio extra inferior */
+    border: 1px solid #ccc; /* Borde gris claro para la tarjeta del producto */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 0; /* Sin padding interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+    overflow: hidden; /* Evita el desbordamiento del contenido */
+    height: 500px; /* Altura fija para las tarjetas */
+    display: flex; /* Utiliza un layout flexible para el contenido de la tarjeta */
+    flex-direction: column; /* Coloca los elementos en columna */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    margin-bottom: 30px; /* Espacio extra inferior para las tarjetas */
 }
 
 .producto-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    margin: 0;
-    padding: 0;
+    width: 100%; /* Ancho total de la imagen */
+    height: 250px; /* Altura fija para la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
 }
 
 .producto-card h3 {
-    font-size: 18px;
-    margin: 10px 0 5px 0;
-    font-weight: bold;
+    font-size: 18px; /* Tamaño del texto del título del producto */
+    margin: 10px 0 5px 0; /* Margen superior, inferior y lateral para el título */
+    font-weight: bold; /* Estilo de texto en negrita */
 }
 
 .descripcion-producto {
-    padding: 10px;
-    text-align: left;
-    max-width: 90%;
-    margin: 0 auto;
-    box-sizing: border-box;
+    padding: 10px; /* Padding interno para la descripción del producto */
+    text-align: left; /* Alinea el texto a la izquierda */
+    max-width: 90%; /* Ancho máximo de la descripción */
+    margin: 0 auto; /* Centra la descripción horizontalmente */
+    box-sizing: border-box; /* Incluye el padding y el border en el total */
 }
 
 .descripcion-producto p {
     font-size: 14px; /* Ajusta el tamaño del texto para hacerlo más compacto */
     line-height: 1.4; /* Mejora la legibilidad con un poco de espacio entre líneas */
-    margin: 5px 0;
+    margin: 5px 0; /* Margen superior e inferior para los párrafos */
 }
 
 button {
-    padding: 15px;
-    background-color: #007b5e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: auto;
+    padding: 15px; /* Padding interno para los botones */
+    background-color: #007b5e; /* Color de fondo del botón */
+    color: white; /* Color del texto en el botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+    margin-top: auto; /* Empuja el botón hacia el final del contenedor */
 }
 
 button:hover {
-    background-color: #005b47;
+    background-color: #005b47; /* Color de fondo al pasar el ratón por encima del botón */
 }
 
 .ver-mas-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    display: flex; /* Utiliza un layout flexible */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    margin-top: 20px; /* Margen superior para el contenedor */
 }
 
 .ver-mas {
-    font-size: 16px;
-    width: 150px;
-    text-align: center;
-    background-color: #007b5e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 16px; /* Tamaño del texto del botón "Ver más" */
+    width: 150px; /* Ancho fijo para el botón */
+    text-align: center; /* Centra el texto dentro del botón */
+    background-color: #007b5e; /* Color de fondo del botón */
+    color: white; /* Color del texto en el botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
 }
 
 .ver-mas:hover {
-    background-color: #005b47;
+    background-color: #005b47; /* Color de fondo al pasar el ratón por encima del botón */
 }
 
 .botones-contrato {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+    display: flex; /* Utiliza un layout flexible */
+    justify-content: space-between; /* Espacio entre los botones */
+    margin-top: 10px; /* Margen superior para el grupo de botones */
     gap: 0; /* Elimina el espacio entre los botones */
 }
 
 .botones-contrato button {
     width: 49.5%; /* Asegura que ambos botones ocupen la mitad del espacio */
     padding: 12px; /* Ajusta ligeramente el padding para que se vean más compactos */
-    background-color: #007b5e;
-    color: white;
-    border-color: black;
+    background-color: #007b5e; /* Color de fondo del botón */
+    color: white; /* Color del texto en el botón */
+    border-color: black; /* Borde negro */
     border-radius: 0; /* Elimina los bordes redondeados para que queden juntos */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
 }
 
 .botones-contrato button:first-child {
@@ -248,5 +240,5 @@ button:hover {
 }
 
 .botones-contrato button:hover {
-    background-color: #005b47;
+    background-color: #005b47; /* Color de fondo al pasar el ratón por encima del botón */
 }
