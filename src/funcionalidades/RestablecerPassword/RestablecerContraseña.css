@@ -1,67 +1,76 @@
+/* Contenedor principal para la reset-password */
 .reset-password-container {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  width: 95%;
-  max-width: 100vw;
-  box-sizing: border-box;
+  display: flex; /* Utiliza Flexbox para alinear los elementos hijos */
+  flex-direction: row; /* Dispone los elementos en fila (horizontalmente) */
+  height: 100vh; /* Altura del contenedor igual a la altura de la ventana del navegador */
+  width: 95%; /* Ancho del contenedor del 95% del ancho disponible */
+  max-width: 100vw; /* Ancho máximo del contenedor igual al 100% del ancho de la ventana */
+  box-sizing: border-box; /* Incluye el padding y el borde en el cálculo del ancho y alto */
 }
 
+/* Estilo para la imagen dentro del contenedor de la reset-password */
 .reset-password-image img {
-  width: 50vw;
-  height: 100%;
-  object-fit: cover;
+  width: 50vw; /* Ancho de la imagen igual al 50% del ancho de la ventana */
+  height: 100%; /* Altura de la imagen igual al 100% del contenedor padre */
+  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin distorsionarse */
 }
 
+/* Estilo para el formulario de restablecimiento de contraseña */
 .reset-password-form {
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  margin-left: 10px;
+  width: 50vw; /* Ancho del formulario igual al 50% del ancho de la ventana */
+  display: flex; /* Utiliza Flexbox para organizar elementos hijos */
+  flex-direction: column; /* Organiza los elementos en una columna (verticalmente) */
+  justify-content: center; /* Centra los elementos hijos verticalmente dentro del contenedor */
+  align-items: center; /* Centra los elementos hijos horizontalmente dentro del contenedor */
+  padding: 20px; /* Espaciado interno de 20px */
+  margin-left: 10px; /* Margen izquierdo de 10px */
 }
 
+/* Estilo para el encabezado del formulario */
 .reset-password-form h2 {
-  text-align: left;
-  margin-left: 130px;
-  width: 100%;
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 50px;
+  text-align: left; /* Alinea el texto a la izquierda */
+  margin-left: 130px; /* Margen izquierdo de 130px para separar del borde */
+  width: 100%; /* Ancho del encabezado al 100% del contenedor */
+  font-size: 48px; /* Tamaño de fuente grande */
+  font-weight: bold; /* Fuente en negrita */
+  margin-bottom: 50px; /* Espacio debajo del encabezado de 50px */
 }
 
+/* Estilo para el formulario dentro del contenedor de reset-password */
 .reset-password-form form {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
+  width: 80%; /* Ancho del formulario interno del 80% del contenedor padre */
+  display: flex; /* Utiliza Flexbox para organizar los elementos */
+  flex-direction: column; /* Dispone los elementos en una columna */
 }
 
+/* Estilo para las etiquetas del formulario */
 .reset-password-form label {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 100%;
-  text-align: left;
+  margin-top: 5px; /* Margen superior de 5px */
+  margin-bottom: 5px; /* Margen inferior de 5px */
+  width: 100%; /* Ancho de la etiqueta al 100% del contenedor */
+  text-align: left; /* Alinea el texto a la izquierda */
 }
 
+/* Estilo para los campos de entrada del formulario */
 .reset-password-form input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
+  padding: 10px; /* Espaciado interno de 10px */
+  margin-bottom: 10px; /* Margen inferior de 10px */
+  border: 1px solid #ccc; /* Borde gris claro alrededor del campo */
+  border-radius: 5px; /* Bordes redondeados de 5px */
+  width: 100%; /* Ancho del campo al 100% del contenedor */
 }
 
+/* Estilo para el botón del formulario */
 button {
-  padding: 10px;
-  background-color: #007b5e;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 10px; /* Espaciado interno de 10px */
+  background-color: #007b5e; /* Color de fondo verde oscuro */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde alrededor del botón */
+  border-radius: 5px; /* Bordes redondeados de 5px */
+  cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el botón */
 }
 
+/* Estilo para el botón al pasar el mouse por encima */
 button:hover {
-  background-color: #005b47;
+  background-color: #005b47; /* Cambia el color de fondo a un verde más oscuro al pasar el mouse */
 }

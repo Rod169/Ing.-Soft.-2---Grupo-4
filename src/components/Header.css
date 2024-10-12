@@ -1,71 +1,72 @@
 .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  background-color: white;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  max-width: 100vw;
-  box-sizing: border-box;
-  z-index: 1000;
+  display: flex; /* Utiliza Flexbox para organizar los elementos dentro del contenedor */
+  justify-content: space-between; /* Espacia los elementos de forma que haya espacio entre ellos */
+  align-items: center; /* Alinea los elementos verticalmente en el centro */
+  padding: 10px 40px; /* Espaciado interno del contenedor (arriba/abajo y derecha/izquierda) */
+  background-color: white; /* Color de fondo blanco */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave debajo del contenedor */
+  position: fixed; /* Fija el encabezado en la parte superior de la ventana */
+  top: 0; /* Posiciona el encabezado en la parte superior */
+  width: 100%; /* Ancho completo del contenedor */
+  max-width: 100vw; /* Limita el ancho máximo al tamaño de la ventana */
+  box-sizing: border-box; /* Incluye el padding y el borde en el cálculo del ancho y la altura */
+  z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
 }
 
 .logo img {
-  height: 55px;
-  margin-left:30px;
+  height: 55px; /* Altura de la imagen del logotipo */
+  margin-left: 30px; /* Margen izquierdo para separar el logotipo del borde del contenedor */
 }
 
 .nav-links {
-  display: flex;
-  gap: 40px;
-  margin-right:100px;
+  display: flex; /* Utiliza Flexbox para organizar los enlaces de navegación */
+  gap: 40px; /* Espacio entre los enlaces */
+  margin-right: 100px; /* Margen derecho para separar los enlaces del borde derecho del contenedor */
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 16px;
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: #333; /* Color del texto de los enlaces */
+  font-weight: 500; /* Peso de la fuente */
+  font-size: 16px; /* Tamaño de la fuente */
 }
 
 .nav-links a:hover {
-  color: #007b5e;
+  color: #007b5e; /* Cambia el color del texto cuando el usuario pasa el mouse sobre el enlace */
 }
 
 .support-dropdown a {
-  position: relative;
-  cursor: pointer;
+  position: relative; /* Permite que el menú desplegable se posicione relativo a este enlace */
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar sobre el enlace */
 }
 
 .icons {
-  display: flex;
-  gap: 20px;
+  display: flex; /* Utiliza Flexbox para organizar los iconos */
+  gap: 20px; /* Espacio entre los iconos */
 }
 
 .icons img {
-  height: 24px;
-  cursor: pointer;
+  height: 24px; /* Altura de las imágenes de los iconos */
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar sobre los iconos */
 }
 
 .icons img.user-icon {
-  height: 24px;
-  cursor: pointer;
+  height: 24px; /* Altura específica para el icono del usuario */
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar sobre el icono de usuario */
 }
+
 /* Estilo normal del menú desplegable */
 .dropdown-menu {
-  position: absolute;
-  top: 60px; 
-  right: 20px; 
-  background-color: white;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #eaeaea;
-  border-radius: 8px;
-  padding: 20px;
-  width: 200px; /* Ancho por defecto */
-  z-index: 1000;
+  position: absolute; /* Posiciona el menú de manera absoluta en relación al contenedor padre */
+  top: 60px; /* Distancia desde la parte superior del contenedor padre */
+  right: 20px; /* Distancia desde el lado derecho del contenedor padre */
+  background-color: white; /* Color de fondo del menú */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave debajo del menú */
+  border: 1px solid #eaeaea; /* Borde suave alrededor del menú */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno del menú */
+  width: 200px; /* Ancho por defecto del menú */
+  z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
 }
 
 /* Cambios para cuando el usuario ha iniciado sesión */
@@ -74,28 +75,28 @@
 }
 
 .dropdown-menu h3 {
-  margin-top: 0;
-  font-size: 16px; /* Reducimos un poco el tamaño de la fuente del nombre de usuario */
-  margin-bottom: 15px;
-  border-bottom: 1px solid #eaeaea;
-  padding-bottom: 10px;
-  word-break: break-word; /* Permite que el nombre de usuario se divida en varias líneas si es necesario */
+  margin-top: 0; /* Elimina el margen superior del encabezado del menú */
+  font-size: 16px; /* Tamaño de la fuente del encabezado */
+  margin-bottom: 15px; /* Margen inferior para separar el encabezado del resto del contenido */
+  border-bottom: 1px solid #eaeaea; /* Línea inferior para separar visualmente el encabezado */
+  padding-bottom: 10px; /* Espaciado interno en la parte inferior del encabezado */
+  word-break: break-word; /* Permite que el texto largo se divida en varias líneas si es necesario */
 }
 
 .dropdown-button {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #007b5e;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  text-align: center;
-  cursor: pointer;
-  font-size: 14px;
+  display: block; /* Hace que el botón ocupe el ancho completo */
+  width: 100%; /* Ancho completo del botón */
+  margin: 10px 0; /* Margen superior e inferior para separar el botón */
+  padding: 10px; /* Espaciado interno del botón */
+  background-color: #007b5e; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  text-align: center; /* Alinea el texto al centro */
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar sobre el botón */
+  font-size: 14px; /* Tamaño de la fuente del botón */
 }
 
 .dropdown-button:hover {
-  background-color: #005b47;
+  background-color: #005b47; /* Cambia el color de fondo del botón cuando el usuario pasa el mouse sobre él */
 }

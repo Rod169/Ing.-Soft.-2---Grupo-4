@@ -1,115 +1,114 @@
 .soporte-container {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  width: 95%; /* Limita el ancho del viewport */
-  max-width: 100vw;
-  box-sizing: border-box;
+  display: flex; /* Utiliza flexbox para el diseño del contenedor */
+  flex-direction: row; /* Coloca los elementos en una fila */
+  height: 100vh; /* Establece la altura del contenedor al 100% de la altura de la ventana */
+  width: 95%; /* Limita el ancho del contenedor al 95% del viewport */
+  max-width: 100vw; /* Establece un ancho máximo del 100% de la ventana */
+  box-sizing: border-box; /* Incluye el padding y el border en el cálculo del ancho y alto */
 }
 
-
 .soporte-image {
-  width: 50vw;
-  height: 100%;
-  object-fit: cover;
+  width: 50vw; /* Establece el ancho de la imagen al 50% del viewport */
+  height: 100%; /* Establece la altura al 100% del contenedor */
+  object-fit: cover; /* Asegura que la imagen cubra el contenedor sin deformarse */
 }
 
 .soporte-image img {
-  width: 50vw;
-  height: 100%;
-  object-fit: cover;
+  width: 50vw; /* Ancho de la imagen igual que su contenedor */
+  height: 100%; /* Altura de la imagen igual que su contenedor */
+  object-fit: cover; /* Asegura que la imagen cubra el contenedor sin deformarse */
 }
 
 .soporte-form {
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  width: 50vw; /* Ancho del formulario igual al 50% del viewport */
+  display: flex; /* Utiliza flexbox para el diseño del formulario */
+  flex-direction: column; /* Coloca los elementos en una columna */
+  justify-content: center; /* Centra los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  padding: 20px; /* Espaciado interno de 20px */
 }
 
 .soporte-form h2 {
-  text-align: left;
-  margin-left: 130px;
-  width: 100%;
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 30px;
+  text-align: left; /* Alinea el texto a la izquierda */
+  margin-left: 130px; /* Margen izquierdo de 130px */
+  width: 100%; /* Ancho del encabezado igual al del formulario */
+  font-size: 48px; /* Tamaño de fuente de 48px */
+  font-weight: bold; /* Establece el texto en negrita */
+  margin-bottom: 30px; /* Margen inferior de 30px */
 }
 
 .soporte-form form {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
+  width: 80%; /* Ancho del formulario al 80% de su contenedor */
+  display: flex; /* Utiliza flexbox para el diseño del formulario */
+  flex-direction: column; /* Coloca los elementos en una columna */
 }
 
 .soporte-form .form-group {
-  margin-bottom: 10px;
-  width: 100%;
+  margin-bottom: 10px; /* Margen inferior de 10px entre grupos de formularios */
+  width: 100%; /* Ancho del grupo igual al del formulario */
 }
 
 .soporte-form label {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 100%;
-  text-align: left;
-  display: block;
+  margin-top: 5px; /* Margen superior de 5px */
+  margin-bottom: 5px; /* Margen inferior de 5px */
+  width: 100%; /* Ancho de la etiqueta igual al del grupo */
+  text-align: left; /* Alinea el texto a la izquierda */
+  display: block; /* Muestra la etiqueta como bloque */
 }
 
 .soporte-form input,
 .soporte-form select,
 .soporte-form textarea {
-  padding: 10px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
+  padding: 10px; /* Espaciado interno de 10px */
+  margin-bottom: 5px; /* Margen inferior de 5px */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 5px; /* Bordes redondeados de 5px */
+  width: 100%; /* Ancho de los campos igual al del grupo */
 }
 
 .soporte-form textarea {
-  resize: none;
+  resize: none; /* Desactiva la capacidad de redimensionar el área de texto */
 }
 
 .soporte-form .name-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+  display: flex; /* Utiliza flexbox para el diseño de los nombres */
+  justify-content: space-between; /* Espacia los elementos equitativamente */
+  width: 100%; /* Ancho del contenedor igual al del formulario */
 }
 
 .soporte-form .name-container .form-group {
-  width: 48%;
+  width: 48%; /* Ancho de cada grupo de nombre igual al 48% del contenedor */
 }
 
 .soporte-form .checkbox-group {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  margin-left: -180px;
-  margin-bottom: 10px;
+  display: flex; /* Utiliza flexbox para el diseño del grupo de checkbox */
+  align-items: center; /* Alinea los elementos verticalmente al centro */
+  justify-content: flex-start; /* Alinea los elementos al inicio */
+  width: 100%; /* Ancho del grupo igual al del formulario */
+  margin-left: -180px; /* Ajuste negativo para posicionar el grupo */
+  margin-bottom: 10px; /* Margen inferior de 10px */
 }
 
 .soporte-form .checkbox-group label {
-  margin-left: -170px;
+  margin-left: -170px; /* Ajuste negativo para posicionar las etiquetas de los checkbox */
 }
 
 .soporte-form .submit-group {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  display: flex; /* Utiliza flexbox para el diseño del grupo de envío */
+  justify-content: flex-end; /* Alinea el botón de envío al final */
+  width: 100%; /* Ancho del grupo igual al del formulario */
 }
 
 .soporte-form button {
-  padding: 15px;
-  background-color: #007b5e;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  padding: 15px; /* Espaciado interno de 15px */
+  background-color: #007b5e; /* Color de fondo verde */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados de 5px */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de fuente de 16px */
 }
 
 .soporte-form button:hover {
-  background-color: #005b47;
+  background-color: #005b47; /* Cambia el color de fondo al pasar el mouse */
 }

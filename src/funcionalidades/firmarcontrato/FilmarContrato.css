@@ -1,54 +1,51 @@
-.firmar-contrato-container {
-    padding: 100px 20px;
-    text-align: center;
-    height: 350px;
-  }
-  
-  /* Estilo para los encabezados */
-  h1, h2 {
-    font-size: 2rem;
-    color: black;
-    margin-bottom: 30px;
-  }
-  
-  /* Estilos para la lista de participantes */
-  ul {
-    list-style-type: none;
-    padding: 0;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .listakey {
-    display: flex; /* Usamos Flexbox para alinear el contenido */
-    justify-content: space-between; /* Espacio entre el correo y el botón */
-    align-items: center; /* Alinear verticalmente */
-    padding: 15px;
-    border: 1px solid #ddd; /* Borde ligero alrededor de cada elemento */
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #fff; /* Fondo blanco para contraste */
-    transition: background-color 0.3s ease; /* Animación suave al hacer hover */
-  }
-  
-  
-  /* Estilos para los botones */
-  .botoncorrec {
-    padding: 10px 20px;
-    background-color: #007b5e; /* El color verde de tu sitio */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Animación suave */
-  }
-  
-  /* Efecto hover en el botón */
-  button:hover {
-    background-color: #005b47; /* Un verde más oscuro al hacer hover */
-    transform: translateY(-2px); /* Efecto de movimiento hacia arriba */
-  }
-  
+/* Estilos para el contenedor principal del componente "Firmar Contrato" */
+.firmar-contrato-container { 
+  padding: 100px 20px;  /* Espaciado interno: 100px arriba/abajo, 20px a los lados */
+  text-align: center;   /* Alineación centrada del texto */
+  height: 350px;        /* Altura fija de 350px */
+}
 
-  
-  
+/* Estilo para los encabezados h1 y h2 del componente */
+h1, h2 {
+  font-size: 2rem;      /* Tamaño del texto de 2rem (responsive) */
+  color: black;         /* Color negro para los títulos */
+  margin-bottom: 30px;  /* Separación inferior de 30px para espacio entre títulos y otros elementos */
+}
+
+/* Estilos para la lista de participantes (ul) */
+ul {
+  list-style-type: none; /* Eliminamos los bullets (puntos) de la lista */
+  padding: 0;            /* Sin espacio interno dentro de la lista */
+  max-width: 600px;      /* Ancho máximo de la lista para mantenerla centrada */
+  margin: 0 auto;        /* Centrado horizontal de la lista */
+}
+
+/* Estilos específicos para cada elemento de la lista (participante) */
+.listakey {
+  display: flex;              /* Usamos Flexbox para alinear el contenido en una fila */
+  justify-content: space-between; /* Espacio entre el correo del participante y el botón */
+  align-items: center;        /* Alineación vertical centrada de los elementos */
+  padding: 15px;              /* Espaciado interno de 15px */
+  border: 1px solid #ddd;     /* Borde gris claro para cada elemento de la lista */
+  border-radius: 5px;         /* Esquinas redondeadas */
+  margin-bottom: 10px;        /* Espacio entre cada elemento de la lista */
+  background-color: #fff;     /* Fondo blanco para cada elemento */
+  transition: background-color 0.3s ease; /* Transición suave del fondo al hacer hover */
+}
+
+/* Estilos para los botones */
+.botoncorrec {
+  padding: 10px 20px;         /* Espaciado interno del botón (10px arriba/abajo, 20px a los lados) */
+  background-color: #007b5e;  /* Color de fondo verde */
+  color: white;               /* Texto en blanco */
+  border: none;               /* Sin borde */
+  border-radius: 5px;         /* Esquinas redondeadas */
+  cursor: pointer;            /* Cambia el cursor a pointer (manita) al pasar sobre el botón */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Animación suave para cambios de fondo y movimiento */
+}
+
+/* Efecto hover en los botones */
+button:hover {
+  background-color: #005b47;  /* Cambia el fondo a un verde más oscuro al hacer hover */
+  transform: translateY(-2px); /* El botón se eleva ligeramente (2px hacia arriba) */
+}

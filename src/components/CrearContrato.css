@@ -1,73 +1,82 @@
+/* Contenedor principal del formulario de contrato */
 .formulario-contrato-container {
-    width: 100%;
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 160px 20px; /* Aumenta el padding superior para evitar que el header lo tape */
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+    width: 100%; /* Ancho total del contenedor */
+    max-width: 750px; /* Ancho máximo de 750px */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 160px 20px; /* Padding superior aumentado para evitar que el header lo tape, y padding lateral de 20px */
+    background-color: #f5f5f5; /* Color de fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+    position: relative; /* Posicionamiento relativo para los elementos secundarios */
 }
   
+/* Estilos para el título del formulario */
 .formulario-contrato-container h2 {
-    font-size: 2.5rem;
-    color: #000000;
-    text-align: left;
-    margin-bottom: 40px;
+    font-size: 2.5rem; /* Tamaño de fuente grande */
+    color: #000000; /* Color del texto negro */
+    text-align: left; /* Alineación del texto a la izquierda */
+    margin-bottom: 40px; /* Espacio inferior de 40px para separar del contenido siguiente */
 }
 
+/* Estilo para el formulario dentro del contenedor */
 .formulario-contrato-container form {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Utiliza flexbox para organizar los elementos */
+    flex-direction: column; /* Los elementos dentro del formulario se organizan en una columna */
 }
 
+/* Estilos para las etiquetas de los campos del formulario */
 .formulario-contrato-container label {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #000000;
-    text-align: left;
+    font-size: 1.2rem; /* Tamaño de fuente para las etiquetas */
+    margin-bottom: 10px; /* Espacio inferior de 10px */
+    color: #000000; /* Color de texto negro */
+    text-align: left; /* Alineación del texto a la izquierda */
 }
 
+/* Estilos para los campos de entrada (input) y selección (select) */
 .formulario-contrato-container input,
 .formulario-contrato-container select {
-    padding: 15px;
-    font-size: 1rem;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 15px; /* Espaciado interno de 15px */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+    margin-bottom: 20px; /* Espacio inferior de 20px entre campos */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
 }
 
+/* Estilos para el botón del formulario */
 .formulario-contrato-container button {
-    padding: 15px;
-    background-color: #007b5e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2rem;
+    padding: 15px; /* Espaciado interno de 15px */
+    background-color: #007b5e; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1.2rem; /* Tamaño de fuente grande */
 }
 
+/* Estilo para el efecto hover del botón */
 .formulario-contrato-container button:hover {
-    background-color: #005b47;
+    background-color: #005b47; /* Color de fondo más oscuro al pasar el mouse */
 }
 
+/* Estilo para la imagen de previsualización del contrato */
 .imagen-previsualizacion {
-    position: absolute;
-    top: 100px;
-    right: 20px;
-    width: 170px;
-    height: 150px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    position: absolute; /* Posicionamiento absoluto respecto al contenedor relativo */
+    top: 100px; /* Distancia desde la parte superior de 100px */
+    right: 20px; /* Distancia desde el lado derecho de 20px */
+    width: 170px; /* Ancho fijo de 170px */
+    height: 150px; /* Alto fijo de 150px */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #fff; /* Color de fondo blanco */
+    display: flex; /* Utiliza flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    overflow: hidden; /* Oculta el contenido que sobresale */
 }
 
+/* Estilo para la imagen dentro de la previsualización */
 .imagen-previsualizacion img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* Ancho del 100% del contenedor */
+    height: 100%; /* Alto del 100% del contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área sin distorsión */
 }

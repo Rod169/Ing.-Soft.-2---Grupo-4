@@ -1,24 +1,27 @@
+/* Contenedor principal de las notificaciones */
 .notificaciones-container {
-    padding: 100px 20px;
-    text-align: center;
-  }
-  
-  .notificaciones-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .notificacion-card {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    text-align: left;
-  }
-  
-  .notificacion-card p {
-    margin: 0;
-    font-size: 16px;
-  }
-  
+  padding: 100px 20px;  /* Espacio interno: 100px arriba/abajo y 20px a los lados */
+  text-align: center;   /* Alineación centrada del contenido */
+}
+
+/* Lista de notificaciones organizada en una columna */
+.notificaciones-list {
+  display: flex;              /* Usamos Flexbox para alinear los elementos */
+  flex-direction: column;     /* Alineamos los elementos en una columna (verticalmente) */
+  gap: 20px;                  /* Espacio de 20px entre las tarjetas de notificaciones */
+}
+
+/* Estilos para cada tarjeta de notificación */
+.notificacion-card {
+  padding: 20px;              /* Espacio interno dentro de la tarjeta */
+  border: 1px solid #ccc;     /* Borde gris claro alrededor de la tarjeta */
+  border-radius: 5px;         /* Esquinas redondeadas para un diseño más moderno */
+  background-color: #f5f5f5;  /* Fondo gris claro */
+  text-align: left;           /* Alineación del texto a la izquierda */
+}
+
+/* Estilos específicos para los párrafos dentro de la tarjeta */
+.notificacion-card p {
+  margin: 0;                  /* Eliminamos el margen por defecto de los párrafos */
+  font-size: 16px;            /* Tamaño de la fuente del texto */
+}
