@@ -1,43 +1,47 @@
+/* Contenedor principal para la sección de notificaciones */
 .notificaciones-container {
-  padding: 100px 20px;
-  text-align: center;
+  padding: 100px 20px;  /* Espacio interno: 100px arriba/abajo, 20px a los lados */
+  text-align: center;   /* Alineación centrada del texto */
 }
 
+/* Estilo para el encabezado h1 */
 h1 {
-  font-size: 2rem;
-  color: #007b5e;
-  margin-bottom: 30px;
+  font-size: 2rem;      /* Tamaño de la fuente de 2rem (tamaño responsivo) */
+  color: #007b5e;       /* Color verde oscuro para el encabezado */
+  margin-bottom: 30px;  /* Espacio debajo del encabezado para separarlo del contenido siguiente */
 }
 
+/* Estilos para la lista de notificaciones */
 .lista-notificaciones {
-  list-style-type: none;
-  padding: 0;
-  max-width: 600px;
-  margin: 0 auto;
+  list-style-type: none; /* Eliminamos los bullets (puntos) de la lista */
+  padding: 0;            /* Sin espacio interno en la lista */
+  max-width: 600px;      /* Ancho máximo de la lista para limitar su tamaño */
+  margin: 0 auto;        /* Centrado horizontalmente */
 }
 
+/* Estilos para cada elemento individual de notificación */
 .notificacion-item {
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  text-align: left;
+  background-color: #f5f5f5;  /* Fondo gris claro */
+  border: 1px solid #ccc;     /* Borde gris suave alrededor del elemento */
+  padding: 15px;              /* Espaciado interno */
+  margin-bottom: 10px;        /* Espacio entre notificaciones */
+  border-radius: 5px;         /* Esquinas redondeadas */
+  text-align: left;           /* Alineación del texto a la izquierda */
 }
 
+/* Botón para limpiar notificaciones */
 .btn-limpiar-notificaciones {
-  padding: 15px 40px;
-  background-color: #007b5e;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
+  padding: 15px 40px;         /* Espaciado interno: 15px arriba/abajo, 40px a los lados */
+  background-color: #007b5e;  /* Color verde del botón */
+  color: white;               /* Texto en color blanco */
+  border: none;               /* Sin borde */
+  border-radius: 5px;         /* Esquinas redondeadas */
+  font-size: 16px;            /* Tamaño del texto del botón */
+  cursor: pointer;            /* Cambia el cursor a "pointer" al pasar por el botón */
+  margin-top: 20px;           /* Espacio superior para separar el botón del contenido anterior */
 }
 
+/* Efecto hover para el botón */
 .btn-limpiar-notificaciones:hover {
-  background-color: #005b47;
+  background-color: #005b47;  /* Cambia a un verde más oscuro al pasar el cursor por encima */
 }
-
-  
