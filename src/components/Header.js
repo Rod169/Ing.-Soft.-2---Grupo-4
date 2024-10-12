@@ -1,29 +1,25 @@
-import React, { useState, useEffect } from 'react'; // Importa React y hooks useState y useEffect
-import { useNavigate } from 'react-router-dom'; // Importa el hook useNavigate para la navegación
-import './Header.css'; // Importa los estilos CSS para el encabezado
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => {
-  // Definimos el estado del menú desplegable y del usuario autenticado
-  const [menuDesplegable, setMenuDesplegable] = useState(false); // Estado para mostrar/ocultar el menú desplegable
-  const [loggedInUser, setLoggedInUser] = useState(null); // Estado para almacenar el email del usuario autenticado
+  const [menuDesplegable, setMenuDesplegable] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null); // Estado para almacenar el nombre del usuario autenticado
   const [userType, setUserType] = useState(null); // Estado para manejar el tipo de usuario (empresa o proveedor)
-  const navigate = useNavigate(); // Hook para la navegación programática
+  const navigate = useNavigate();
 
-  // useEffect se ejecuta al montar el componente
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('loggedInUser')); // Obtiene el usuario almacenado en localStorage
     if (user) {
-      setLoggedInUser(user.email); // Si hay un usuario, establece el email
+      setLoggedInUser(user.firstName); // Establece el firstName del usuario en el estado
       setUserType(user.accountType); // Establece el tipo de cuenta (proveedor o empresa)
     }
-  }, []); // El array vacío indica que solo se ejecutará una vez al montar el componente
+  }, []);
 
-  // Función para alternar la visibilidad del menú desplegable
   const alternarMenuDesplegable = () => {
     setMenuDesplegable(!menuDesplegable); // Cambia el estado de visibilidad del menú
   };
 
-  // Función para cerrar sesión
   const handleLogout = () => {
     localStorage.removeItem('loggedInUser'); // Elimina el usuario del localStorage
     setLoggedInUser(null); // Reinicia el estado del usuario autenticado
@@ -32,44 +28,44 @@ const Header = () => {
   };
 
   return (
-    <header className="header-container"> {/* Contenedor principal del encabezado */}
-      <div className="logo"> {/* Sección del logotipo */}
-        <img src={process.env.PUBLIC_URL + '/allpa-logo.png'} alt="Allpa Logo" /> {/* Logotipo de la empresa */}
+    <header className="header-container">
+      <div className="logo">
+        <img src={process.env.PUBLIC_URL + '/allpa-logo.png'} alt="Allpa Logo" />
       </div>
-      <nav className="nav-links"> {/* Navegación principal */}
-        <a href="/inicio">Inicio</a> {/* Enlace a la página de inicio */}
-        {userType === 'empresa' ? ( // Condicional que muestra diferentes enlaces según el tipo de usuario
+      <nav className="nav-links">
+        <a href="/inicio">Inicio</a>
+        {userType === 'empresa' ? (
           <a href="/pedidos-empresa">Pedidos Empresa</a>
         ) : (
           <a href="/pedidos-proveedor">Pedidos Proveedor</a>
         )}
-        <a href="#">Productos</a> {/* Enlace a productos */}
-        <a href="#">Sobre nosotros</a> {/* Enlace a información sobre la empresa */}
-        <div className="support-dropdown"> {/* Enlace al soporte con un icono de menú desplegable */}
+        <a href="#">Productos</a>
+        <a href="#">Sobre nosotros</a>
+        <div className="support-dropdown">
           <a href="/soporte">Soporte &#9662;</a>
         </div>
       </nav>
-      <div className="icons"> {/* Sección de iconos de usuario */}
-        <img src={process.env.PUBLIC_URL + '/notification-icon.png'} alt="Notifications" /> {/* Icono de notificaciones */}
-        <img src={process.env.PUBLIC_URL + '/settings-icon.png'} alt="Settings" /> {/* Icono de ajustes */}
+      <div className="icons">
+        <img src={process.env.PUBLIC_URL + '/notification-icon.png'} alt="Notifications" />
+        <img src={process.env.PUBLIC_URL + '/settings-icon.png'} alt="Settings" />
         <img 
           src={process.env.PUBLIC_URL + '/user-icon.png'} 
           alt="User" 
-          className="user-icon" // Clase para el icono de usuario
-          onClick={alternarMenuDesplegable} // Llama a la función al hacer clic
+          className="user-icon"
+          onClick={alternarMenuDesplegable}
         />
-        {menuDesplegable && ( // Renderiza el menú desplegable si está activo
-          <div className="dropdown-menu"> 
-            {loggedInUser ? ( // Condicional que muestra contenido diferente si hay un usuario autenticado
+        {menuDesplegable && (
+          <div className="dropdown-menu">
+            {loggedInUser ? (
               <>
-                <h3>Bienvenido, {loggedInUser}</h3> {/* Mensaje de bienvenida */}
-                <button className="dropdown-button" onClick={handleLogout}>Cerrar Sesión</button> {/* Botón de cierre de sesión */}
+                <h3>Bienvenido, {loggedInUser}</h3> {/* Muestra solo el first name del usuario */}
+                <button className="dropdown-button" onClick={handleLogout}>Cerrar Sesión</button>
               </>
             ) : (
               <>
-                <h3>Bienvenido</h3> {/* Mensaje de bienvenida genérico */}
-                <button className="dropdown-button" onClick={() => navigate('/login')}>Iniciar Sesión</button> {/* Botón para iniciar sesión */}
-                <button className="dropdown-button" onClick={() => navigate('/signup')}>Registrarse</button> {/* Botón para registrarse */}
+                <h3>Bienvenido</h3>
+                <button className="dropdown-button" onClick={() => navigate('/login')}>Iniciar Sesión</button>
+                <button className="dropdown-button" onClick={() => navigate('/signup')}>Registrarse</button>
               </>
             )}
           </div>
@@ -79,4 +75,4 @@ const Header = () => {
   );
 };
 
-export default Header; // Exporta el componente Header para su uso en otras partes de la aplicación
+export default Header;
