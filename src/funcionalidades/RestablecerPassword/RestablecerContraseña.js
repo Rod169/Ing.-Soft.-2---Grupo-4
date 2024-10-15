@@ -1,11 +1,6 @@
-// Este componente maneja la lógica de restablecimiento de contraseña.
-// Cumple con el principio OCP al permitir la extensión del comportamiento
-// a través del uso de componentes y funciones de callback sin modificar
-// su lógica existente.
 import React, { useState } from 'react'; // Importa React y useState desde la biblioteca de React.
 import './RestablecerContraseña.css'; // Importa el archivo de estilos CSS para el componente.
 import { useNavigate } from 'react-router-dom'; // Importa el hook useNavigate para la navegación entre rutas.
-import FormularioReestablecimiento from './FormularioReestablecimiento'; // Importa el componente de formulario.
 
 const RestablecerContraseña = () => {
   const [email, setEmail] = useState(''); // Estado para almacenar el email ingresado.
@@ -57,7 +52,19 @@ const RestablecerContraseña = () => {
       </div>
       <div className="reset-password-form"> {/* Sección del formulario */}
         {!isResetLinkSent ? ( // Si no se ha enviado el enlace de restablecimiento
-          <FormularioReestablecimiento onResetRequest={handleResetRequest} /> // Usa el nuevo componente para el formulario
+          <form onSubmit={(e) => { e.preventDefault(); handleResetRequest(email); }}> {/* Formulario para solicitar el enlace de restablecimiento */}
+            <h2>Restablecer Contraseña</h2> {/* Título del formulario */}
+            <label htmlFor="email">Correo Electrónico</label> {/* Etiqueta para el campo de correo electrónico */}
+            <input
+              type="email"
+              id="email"
+              placeholder="Correo Electrónico"
+              value={email} // Valor del input vinculado al estado email
+              onChange={(e) => setEmail(e.target.value)} // Actualiza el estado email en función de la entrada del usuario
+              required // Campo obligatorio
+            />
+            <button type="submit">Enviar Enlace de Restablecimiento</button> {/* Botón para enviar el formulario */}
+          </form>
         ) : ( // Si el enlace ha sido enviado
           <form onSubmit={handlePasswordReset}> {/* Formulario para ingresar la nueva contraseña */}
             <h2>Ingresa Nueva Contraseña</h2> {/* Título del formulario */}
