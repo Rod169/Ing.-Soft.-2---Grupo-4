@@ -1,5 +1,6 @@
 // funcionalidades/usuarios/UserFactory.js
 
+
 class User {
     constructor(firstName, lastName, email, password) {
       this.firstName = firstName;
@@ -12,14 +13,14 @@ class User {
   class Proveedor extends User {
     constructor(firstName, lastName, email, password) {
       super(firstName, lastName, email, password);
-      this.role = 'proveedor';
+      this.accountType = 'proveedor';
     }
   }
   
   class Empresa extends User {
     constructor(firstName, lastName, email, password) {
       super(firstName, lastName, email, password);
-      this.role = 'empresa';
+      this.accountType = 'empresa';
     }
   }
   
