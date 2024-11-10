@@ -1,0 +1,215 @@
+.productos-container {
+    padding: 120px 20px; /* Espaciado interno: 120px arriba/abajo y 20px a los lados */
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.titulo {
+    margin-top: -5px; /* Ajusta el margen superior para un mejor posicionamiento */
+    margin-bottom: 0px; /* Elimina el margen inferior */
+    font-size: 1.2rem; /* Tamaño de fuente para el título */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    color: #007b5e; /* Color verde para el texto */
+}
+
+h2 {
+    margin-top: 0; /* Elimina el margen superior */
+    font-size: 2.5rem; /* Tamaño de fuente para encabezados secundarios */
+    color: #000; /* Color negro para el texto */
+}
+
+.search-container {
+    display: flex; /* Usa flexbox para el diseño del contenedor de búsqueda */
+    justify-content: center; /* Centra horizontalmente los elementos hijos */
+    align-items: center; /* Centra verticalmente los elementos hijos */
+    margin-top: -30px; /* Ajusta el margen superior */
+    margin-bottom: 20px; /* Margen inferior para separar del contenido siguiente */
+    gap: 10px; /* Espacio entre los elementos hijos */
+}
+
+.search-bar input, .search-container select, .search-container button {
+    height: 50px; /* Altura de los elementos de entrada, selección y botón */
+    box-sizing: border-box; /* Asegura que el padding y el borde no aumenten el tamaño total */
+    margin: 0; /* Elimina el margen */
+    padding: 10px; /* Espaciado interno */
+}
+
+.search-bar {
+    position: relative; /* Posicionamiento relativo para posicionar elementos hijos */
+    width: 100%; /* Ancho completo del contenedor */
+    max-width: 1400px; /* Ancho máximo del contenedor */
+    background-color: #f5f5f5; /* Color de fondo gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 5px; /* Espaciado interno */
+    display: flex; /* Usa flexbox para el diseño interno */
+    align-items: center; /* Centra verticalmente los elementos hijos */
+}
+
+.search-bar input {
+    padding: 15px 20px; /* Espaciado interno: 15px arriba/abajo y 20px a los lados */
+    padding-left: 50px; /* Espaciado izquierdo adicional para el icono de búsqueda */
+    border: none; /* Sin borde */
+    width: 100%; /* Ancho completo */
+    background-color: #f5f5f5; /* Color de fondo igual al contenedor */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Asegura que el padding y el borde no aumenten el tamaño total */
+    font-size: 14px; /* Tamaño de fuente */
+    margin: 0; /* Elimina el margen */
+}
+
+.search-icon {
+    position: absolute; /* Posicionamiento absoluto dentro de search-bar */
+    left: 10px; /* Distancia desde el lado izquierdo */
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%); /* Ajuste para centrar verticalmente */
+    font-size: 18px; /* Tamaño del icono */
+    color: #888; /* Color gris para el icono */
+}
+
+.search-container select {
+    padding: 0 15px; /* Espaciado interno horizontal */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f5f5f5; /* Color de fondo igual al contenedor */
+    font-size: 14px; /* Tamaño de fuente */
+    height: 50px; /* Altura del selector */
+    margin: 0; /* Elimina el margen */
+}
+
+.search-container button {
+    padding: 0 25px; /* Espaciado interno horizontal */
+    background-color: #007b5e; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    height: 50px; /* Altura del botón */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    margin: 0; /* Elimina el margen */
+}
+
+.search-container button:hover {
+    background-color: #005b47; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.productos-grid {
+    display: grid; /* Usa grid layout para el diseño de productos */
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas de igual ancho */
+    gap: 10px; /* Espacio entre los elementos de la cuadrícula */
+    justify-items: center; /* Centra los elementos dentro de sus celdas */
+}
+
+.producto-card {
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 0; /* Sin padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor de la tarjeta */
+    overflow: hidden; /* Evita que el contenido desborde la tarjeta */
+    height: 500px; /* Altura fija de la tarjeta */
+    display: flex; /* Usa flexbox para el contenido interno */
+    flex-direction: column; /* Dispone los hijos en una columna */
+    justify-content: space-between; /* Espacia el contenido entre los extremos */
+}
+
+.producto-card img {
+    width: 100%; /* Imagen ocupa el ancho completo de la tarjeta */
+    height: 250px; /* Altura fija de la imagen */
+    object-fit: cover; /* Cubre el área de la imagen sin distorsión */
+    margin: 0; /* Elimina el margen */
+    padding: 0; /* Elimina el padding */
+}
+
+.producto-card h3 {
+    font-size: 20px; /* Tamaño de fuente para el título del producto */
+    margin: 10px 0 5px 0; /* Margen superior e inferior */
+}
+
+.descripcion-producto {
+    padding: 10px; /* Espaciado interno */
+    text-align: left; /* Alinea el texto a la izquierda */
+    max-width: 90%; /* Ancho máximo de la descripción */
+    margin: 0 auto; /* Centra horizontalmente el elemento */
+    box-sizing: border-box; /* Asegura que el padding y el borde no aumenten el tamaño total */
+}
+
+.descripcion-producto p {
+    margin: 5px 0; /* Margen superior e inferior de los párrafos */
+}
+
+button {
+    padding: 15px; /* Espaciado interno */
+    background-color: #007b5e; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+    margin-top: auto; /* Margen superior automático para alinear al fondo */
+}
+
+button:hover {
+    background-color: #005b47; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.ver-mas-container {
+    display: flex; /* Usa flexbox para el diseño del contenedor */
+    justify-content: center; /* Centra horizontalmente los elementos hijos */
+    margin-top: 20px; /* Margen superior para separar del contenido superior */
+}
+
+.ver-mas {
+    font-size: 16px; /* Tamaño de fuente para el botón "Ver más" */
+    width: 150px; /* Ancho fijo del botón */
+    text-align: center; /* Centra el texto dentro del botón */
+    background-color: #007b5e; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.ver-mas:hover {
+    background-color: #005b47; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.btn-ver-pedidos {
+    position: absolute; /* Posicionamiento absoluto para este botón */
+    right: 0; /* Alineado a la derecha */
+    padding: 15px 40px; /* Espaciado interno */
+    background-color: #007b5e; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.btn-ver-pedidos:hover {
+    background-color: #005b47; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.titulo-productos-destacados {
+    margin-top: -20px; /* Ajusta el margen superior para un mejor posicionamiento */
+    font-size: 2.3rem; /* Tamaño de fuente para el título de productos destacados */
+    color: #000; /* Color negro para el texto */
+}
+
+.acciones-producto {
+    display: flex; /* Usa flexbox para el diseño de acciones */
+    justify-content: space-between; /* Espacia los botones a los extremos */
+    margin-top: 10px; /* Margen superior para separar del contenido superior */
+    gap: 0; /* Elimina el espacio entre los botones */
+}
+
+.acciones-producto button {
+    width: 49.5%; /* Asegura que ambos botones ocupen la mitad del espacio */
+    padding: 12px; /* Ajusta ligeramente el padding para que se vean más compactos */
+    background-color: #007b5e; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border-color: black; /* Color del borde */
+    border-radius: 0; /* Elimina los bordes redondeados para que queden juntos */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
