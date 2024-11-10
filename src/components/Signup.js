@@ -107,8 +107,19 @@ const Signup = () => {
                 />
                 Soy empresa
               </label>
+              <label>
+                <input
+                  type="radio"
+                  name="accountType"
+                  value="cliente"
+                  checked={accountType === 'cliente'}
+                  onChange={(e) => setAccountType(e.target.value)}
+                />
+                Soy cliente
+              </label>
             </div>
           </div>
+
 
           <label htmlFor="password">Password</label>
           <input

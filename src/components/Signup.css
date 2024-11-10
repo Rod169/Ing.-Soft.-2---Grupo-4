@@ -96,8 +96,8 @@
 .radio-buttons label {
   display: flex; /* Muestra las etiquetas como flexibles */
   align-items: center; /* Alinea verticalmente las etiquetas */
-  gap: 15px; /* Espacio entre el radio button y el texto */
-  margin-right: 160px; /* Espacio a la derecha de las etiquetas */
+  gap: 5px; /* Espacio entre el radio button y el texto */
+  margin-right: 70px; /* Espacio a la derecha de las etiquetas */
   margin-top: 10px; /* Espacio superior de las etiquetas */
   margin-bottom: -5px; /* Espacio inferior negativo para ajustar la alineación */
 }
