@@ -1,0 +1,79 @@
+
+.titulo-editar-perfil {
+    font-size: 28px; /* Aumentar el tamaño de la fuente para que sea más prominente */
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #333; /* Puedes cambiar el color si lo deseas */
+    text-transform: uppercase; /* Hace que el texto esté en mayúsculas */
+  }
+
+/* Contenedor principal para centrar el formulario en la pantalla */
+.editar-perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Formulario de edición de perfil, centrado y con ancho limitado */
+  .editar-perfil-container form {
+    width: 400px; /* Ancho máximo del formulario */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos en el medio */
+  }
+  
+  /* Título del formulario */
+  .editar-perfil-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Etiquetas de los campos */
+  .editar-perfil-container label {
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  /* Campos de entrada */
+  .editar-perfil-container input[type="text"],
+  .editar-perfil-container input[type="email"],
+  .editar-perfil-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Botón de guardar cambios */
+  button.boton-guardar-cambios {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007b5e; /* Color verde oscuro */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* Efecto hover para el botón */
+  button.boton-guardar-cambios:hover {
+    background-color: #005b47; /* Color más oscuro al pasar el ratón */
+  }
