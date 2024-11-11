@@ -34,7 +34,7 @@ const EditarPerfil = () => {
       localStorage.setItem('loggedInUser', JSON.stringify(users[userIndex])); // Actualizamos el usuario autenticado actual en localStorage
 
       alert('Perfil actualizado exitosamente');
-      navigate('/perfil'); // Redirige a la página de perfil o donde prefieras
+      navigate('/Inicio'); // Redirige a la página de perfil o donde prefieras
     } else {
       alert('Error: El usuario no fue encontrado.');
     }
