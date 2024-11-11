@@ -27,7 +27,7 @@ body {
 .footer-left {
     display: flex; /* Usa flexbox para alinear los elementos */
     align-items: center; /* Alinea los elementos verticalmente en el centro */
-    margin-left: -100px; /* Desplazamiento negativo a la izquierda (puede ajustarse) */
+    margin-left: 10px; /* Desplazamiento negativo a la izquierda (puede ajustarse) */
     margin-top: 25px; /* Margen superior para separar del contenido superior */
 }
 
