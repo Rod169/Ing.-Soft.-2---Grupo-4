@@ -4,28 +4,34 @@ import './Header.css';
 
 const Header = () => {
   const [menuDesplegable, setMenuDesplegable] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState(null); // Estado para almacenar el nombre del usuario autenticado
-  const [userType, setUserType] = useState(null); // Estado para manejar el tipo de usuario (empresa, proveedor o cliente)
+  const [settingsMenu, setSettingsMenu] = useState(false); // Nuevo estado para el menú de settings
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [userType, setUserType] = useState(null);
   const navigate = useNavigate();
   const location = useLocation(); // Hook para obtener la ubicación actual
 
+
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('loggedInUser')); // Obtiene el usuario almacenado en localStorage
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
     if (user) {
-      setLoggedInUser(user.firstName); // Establece el firstName del usuario en el estado
-      setUserType(user.accountType); // Establece el tipo de cuenta (proveedor, empresa o cliente)
+      setLoggedInUser(user.firstName);
+      setUserType(user.accountType);
     }
   }, [location]); // La dependencia 'location' asegura que se actualice al cambiar la ruta
 
   const alternarMenuDesplegable = () => {
-    setMenuDesplegable(!menuDesplegable); // Cambia el estado de visibilidad del menú
+    setMenuDesplegable(!menuDesplegable);
+  };
+
+  const alternarSettingsMenu = () => {
+    setSettingsMenu(!settingsMenu); // Alterna el estado de settingsMenu
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('loggedInUser'); // Elimina el usuario del localStorage
-    setLoggedInUser(null); // Reinicia el estado del usuario autenticado
-    setUserType(null); // Limpia el tipo de cuenta
-    navigate('/login'); // Redirige al usuario a la página de inicio de sesión
+    localStorage.removeItem('loggedInUser');
+    setLoggedInUser(null);
+    setUserType(null);
+    navigate('/login');
   };
 
   return (
@@ -54,10 +60,20 @@ const Header = () => {
       </nav>
       <div className="icons">
         <img src={process.env.PUBLIC_URL + '/notification-icon.png'} alt="Notifications" />
-        <img src={process.env.PUBLIC_URL + '/settings-icon.png'} alt="Settings" />
-        <img 
-          src={process.env.PUBLIC_URL + '/user-icon.png'} 
-          alt="User" 
+        <img
+          src={process.env.PUBLIC_URL + '/settings-icon.png'}
+          alt="Settings"
+          className="settings-icon"
+          onClick={alternarSettingsMenu} // Añadir evento de click
+        />
+        {settingsMenu && ( // Mostrar el menú desplegable de configuración
+          <div className="dropdown-menu">
+            <button className="dropdown-button" onClick={() => navigate('/editar-perfil')}>Editar Perfil</button>
+          </div>
+        )}
+        <img
+          src={process.env.PUBLIC_URL + '/user-icon.png'}
+          alt="User"
           className="user-icon"
           onClick={alternarMenuDesplegable}
         />
@@ -65,7 +81,7 @@ const Header = () => {
           <div className="dropdown-menu">
             {loggedInUser ? (
               <>
-                <h3>Bienvenido, {loggedInUser}</h3> {/* Muestra solo el first name del usuario */}
+                <h3>Bienvenido, {loggedInUser}</h3>
                 <button className="dropdown-button" onClick={handleLogout}>Cerrar Sesión</button>
               </>
             ) : (
