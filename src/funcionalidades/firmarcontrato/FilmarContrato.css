@@ -2,7 +2,20 @@
 .firmar-contrato-container { 
   padding: 100px 20px;  /* Espaciado interno: 100px arriba/abajo, 20px a los lados */
   text-align: center;   /* Alineación centrada del texto */
-  height: 350px;        /* Altura fija de 350px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo para el contenido del contrato */
+.contenido-contrato {
+  max-width: 800px;    /* Ancho máximo del contrato */
+  margin: 0 auto;      /* Centrado horizontal */
+  text-align: left;    /* Alineación del texto a la izquierda */
+  padding: 20px;       /* Espaciado interno */
+  border: 1px solid #ddd; /* Borde gris claro */
+  border-radius: 10px; /* Esquinas redondeadas */
+  background-color: #f9f9f9; /* Fondo ligeramente gris */
 }
 
 /* Estilo para los encabezados h1 y h2 del componente */
@@ -10,6 +23,12 @@ h1, h2 {
   font-size: 2rem;      /* Tamaño del texto de 2rem (responsive) */
   color: black;         /* Color negro para los títulos */
   margin-bottom: 30px;  /* Separación inferior de 30px para espacio entre títulos y otros elementos */
+}
+
+/* Estilos para los párrafos dentro del contrato */
+.contenido-contrato p {
+  margin-bottom: 15px; /* Espaciado inferior entre párrafos */
+  line-height: 1.6;    /* Altura de línea para mejorar la legibilidad */
 }
 
 /* Estilos para la lista de participantes (ul) */
