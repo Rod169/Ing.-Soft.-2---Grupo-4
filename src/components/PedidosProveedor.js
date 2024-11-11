@@ -1,37 +1,31 @@
-// Importa React y los hooks useState y useEffect
-import React, { useState, useEffect } from 'react';
-// Importa el archivo CSS para aplicar estilos al componente
-import './PedidosProveedor.css';
-// Importa el servicio que maneja las funcionalidades de contrato
-import ContratoService from '../funcionalidades/ServicioContrato/ContratoService';
+import React, { useState, useEffect } from 'react'; // Importa React y hooks useState y useEffect
+import './PedidosProveedor.css'; // Importa el archivo de estilos CSS
+import ContratoService from '../funcionalidades/ServicioContrato/ContratoService'; // Importa el servicio que maneja las funcionalidades de contrato
+import useBusqueda from '../funcionalidades/Busqueda/useBusqueda'; // Importa el hook personalizado de búsqueda
 
-// Define el componente funcional PedidosProveedor
 const PedidosProveedor = () => {
-  // Estado para almacenar el término de búsqueda
-  const [terminoBusqueda, setTerminoBusqueda] = useState('');
-  // Estado para almacenar la categoría seleccionada
-  const [categoria, setCategoria] = useState('');
-  // Estado para mostrar más contratos en la lista
-  const [mostrarMas, setMostrarMas] = useState(false);
-  // Estado para almacenar la lista de contratos
+  // Estado para manejar la lista de contratos
   const [contratos, setContratos] = useState([]);
+  // Uso del hook personalizado de búsqueda
+  const {
+    terminoBusqueda,
+    setTerminoBusqueda,
+    categoriaSeleccionada,
+    setCategoriaSeleccionada,
+    datosFiltrados,
+    filtrarPorCategoria
+  } = useBusqueda(contratos);
+  // Estado para manejar la visualización de más contratos
+  const [mostrarMas, setMostrarMas] = useState(false);
 
-  // useEffect se ejecuta una vez al montar el componente
   useEffect(() => {
-    // Obtiene contratos guardados usando el servicio de contratos
-    const contratosGuardados = ContratoService.obtenerContratos();
-    // Actualiza el estado de contratos con los contratos guardados
-    setContratos(contratosGuardados);
-  }, []); // El array vacío asegura que solo se ejecute al montar
+    const contratosGuardados = ContratoService.obtenerContratos(); // Obtiene la lista de contratos desde el servicio
+    setContratos(contratosGuardados); // Actualiza el estado con los contratos obtenidos
+  }, []);
 
   // Función para alternar la visualización de más contratos
   const alternarMostrarMas = () => {
-    setMostrarMas(!mostrarMas); // Cambia el estado de mostrarMas
-  };
-
-  // Función que maneja la búsqueda de contratos
-  const manejarBusqueda = () => {
-    console.log('Buscando:', terminoBusqueda, 'Categoría:', categoria); // Imprime en consola los valores de búsqueda
+    setMostrarMas(!mostrarMas); // Cambia el estado mostrarMas
   };
 
   // Función para eliminar un contrato dado su índice
@@ -41,21 +35,9 @@ const PedidosProveedor = () => {
     setContratos(nuevosContratos); // Actualiza el estado de contratos
   };
 
-  // Función para mostrar los participantes de un contrato dado su índice
-  const mostrarParticipantes = (indexContrato) => {
-    const participantes = ContratoService.obtenerParticipantes(indexContrato); // Obtiene la lista de participantes
-    // Si hay participantes, los muestra en una alerta, de lo contrario, informa que no hay
-    if (participantes && participantes.length > 0) {
-      alert(`Participantes: ${participantes.join(', ')}`);
-    } else {
-      alert('No hay participantes en este contrato.');
-    }
-  };
-
   // Decide cuántos contratos mostrar: todos o solo los primeros 4
-  const contratosMostrar = mostrarMas ? contratos : contratos.slice(0, 4);
+  const contratosMostrar = mostrarMas ? datosFiltrados : datosFiltrados.slice(0, 4);
 
-  // Renderiza el componente
   return (
     <div className="pedidos-container">
       <div className="search-container">
@@ -63,18 +45,18 @@ const PedidosProveedor = () => {
           <input
             type="text" // Campo de texto para buscar
             placeholder="Buscar..." // Placeholder para el campo de búsqueda
-            value={terminoBusqueda} // Valor del campo de búsqueda
-            onChange={(e) => setTerminoBusqueda(e.target.value)} // Actualiza el estado en cada cambio
+            value={terminoBusqueda} // Valor del input controlado por el estado
+            onChange={(e) => setTerminoBusqueda(e.target.value)} // Actualiza el estado al cambiar el valor
           />
           <span className="search-icon">&#128269;</span> {/* Icono de lupa */}
         </div>
-        <select value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+        <select value={categoriaSeleccionada} onChange={(e) => setCategoriaSeleccionada(e.target.value)}>
           <option value="">Categorías</option> {/* Opción por defecto */}
           <option value="vegetales">Vegetales</option>
           <option value="granos">Granos</option>
           <option value="frutas">Frutas</option>
         </select>
-        <button onClick={manejarBusqueda}>Buscar</button> {/* Botón para iniciar la búsqueda */}
+        <button onClick={filtrarPorCategoria}>Buscar</button> {/* Botón para iniciar la búsqueda */}
       </div>
 
       <div className="header-pedidos">
@@ -122,7 +104,7 @@ const PedidosProveedor = () => {
       </div>
 
       <div className="ver-mas-container">
-        {contratos.length > 4 && ( // Verifica si hay más de 4 contratos
+        {datosFiltrados.length > 4 && ( // Verifica si hay más de 4 contratos
           <button className="ver-mas" onClick={alternarMostrarMas}> {/* Botón para ver más contratos */}
             {mostrarMas ? 'Ver menos' : 'Ver más'} {/* Cambia el texto del botón según el estado */}
           </button>

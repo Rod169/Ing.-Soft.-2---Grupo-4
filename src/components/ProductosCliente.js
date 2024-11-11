@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from 'react'; // Importa React y hooks useState y useEffect
 import './ProductosCliente.css'; // Importa el archivo de estilos CSS
 import PedidoService from '../funcionalidades/ServicioPedido/PedidoService'; // Importa el servicio para gestionar pedidos
+import useBusqueda from '../funcionalidades/Busqueda/useBusqueda'; // Importa el hook personalizado de búsqueda
 
 // Definición del componente funcional ProductosCliente
 const ProductosCliente = () => {
-  // Definición de estados utilizando useState
-  const [terminoBusqueda, setTerminoBusqueda] = useState(''); // Estado para almacenar el término de búsqueda
-  const [categoria, setCategoria] = useState(''); // Estado para almacenar la categoría seleccionada
-  const [mostrarMas, setMostrarMas] = useState(false); // Estado para alternar la visualización de más pedidos
-  const [pedidos, setPedidos] = useState([]); // Estado para almacenar la lista de pedidos
+  // Estado para manejar la lista de pedidos
+  const [pedidos, setPedidos] = useState([]);
+  // Uso del hook personalizado de búsqueda
+  const {
+    terminoBusqueda,
+    setTerminoBusqueda,
+    categoriaSeleccionada,
+    setCategoriaSeleccionada,
+    datosFiltrados,
+    filtrarPorCategoria
+  } = useBusqueda(pedidos);
+  // Estado para manejar la visualización de más pedidos
+  const [mostrarMas, setMostrarMas] = useState(false);
 
   // Obtenemos el correo del usuario logueado desde localStorage
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')); // Recupera el usuario logueado
-  const correoUsuario = loggedInUser?.email || '';  // Almacena el correo del usuario logueado o cadena vacía
+  const correoUsuario = loggedInUser?.email || ''; // Almacena el correo del usuario logueado o cadena vacía
 
-  // useEffect para cargar pedidos al iniciar el componente
   useEffect(() => {
     const pedidosGuardados = PedidoService.obtenerPedidos(); // Obtiene la lista de pedidos desde el servicio
     setPedidos(pedidosGuardados); // Actualiza el estado con los pedidos obtenidos
@@ -25,21 +33,16 @@ const ProductosCliente = () => {
     setMostrarMas(!mostrarMas); // Cambia el estado mostrarMas a su valor opuesto
   };
 
-  // Función para manejar la búsqueda
-  const manejarBusqueda = () => {
-    console.log('Buscando:', terminoBusqueda, 'Categoría:', categoria); // Muestra en consola los parámetros de búsqueda
-  };
-
   // Función para adquirir un producto
   const adquirirProducto = (indexPedido) => {
-    PedidoService.registrarParticipacion(indexPedido, correoUsuario);  // Registra la adquisición del producto
-    alert(`Has adquirido el producto ${pedidos[indexPedido].producto}`); // Muestra una alerta de adquisición
+    PedidoService.registrarParticipacion(indexPedido, correoUsuario); // Registra la adquisición del producto
+    alert(`Has adquirido el producto ${datosFiltrados[indexPedido].producto}`); // Muestra una alerta de adquisición
     const pedidosActualizados = PedidoService.obtenerPedidos(); // Vuelve a obtener la lista de pedidos actualizada
-    setPedidos(pedidosActualizados);  // Actualiza la lista de pedidos en la interfaz
+    setPedidos(pedidosActualizados); // Actualiza la lista de pedidos en la interfaz
   };
 
   // Determina qué pedidos mostrar: todos o solo los primeros 4
-  const pedidosMostrar = mostrarMas ? pedidos : pedidos.slice(0, 4);
+  const pedidosMostrar = mostrarMas ? datosFiltrados : datosFiltrados.slice(0, 4);
 
   return (
     <div className="productos-container"> {/* Contenedor principal del componente */}
@@ -53,13 +56,13 @@ const ProductosCliente = () => {
           />
           <span className="search-icon">&#128269;</span> {/* Icono de búsqueda */}
         </div>
-        <select value={categoria} onChange={(e) => setCategoria(e.target.value)}> {/* Selector de categorías */}
+        <select value={categoriaSeleccionada} onChange={(e) => setCategoriaSeleccionada(e.target.value)}> {/* Selector de categorías */}
           <option value="">Categorías</option> {/* Opción por defecto */}
           <option value="vegetales">Vegetales</option> {/* Opción de categoría */}
           <option value="granos">Granos</option> {/* Opción de categoría */}
           <option value="frutas">Frutas</option> {/* Opción de categoría */}
         </select>
-        <button onClick={manejarBusqueda}>Buscar</button> {/* Botón para ejecutar la búsqueda */}
+        <button onClick={filtrarPorCategoria}>Buscar</button> {/* Botón para ejecutar el filtrado */}
       </div>
 
       <div className="header-productos"> {/* Encabezado de la sección de productos */}
@@ -101,7 +104,7 @@ const ProductosCliente = () => {
       </div>
 
       <div className="ver-mas-container"> {/* Contenedor para el botón "Ver más" */}
-        {pedidos.length > 4 && ( // Solo muestra el botón si hay más de 4 pedidos
+        {datosFiltrados.length > 4 && ( // Solo muestra el botón si hay más de 4 pedidos
           <button className="ver-mas" onClick={alternarMostrarMas}>
             {mostrarMas ? 'Ver menos' : 'Ver más'} {/* Cambia el texto del botón según el estado mostrarMas */}
           </button>
