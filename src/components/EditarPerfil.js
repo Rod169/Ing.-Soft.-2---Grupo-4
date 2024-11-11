@@ -7,6 +7,7 @@ const EditarPerfil = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [accountType, setAccountType] = useState(''); // Estado para almacenar el tipo de usuario
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,6 +18,7 @@ const EditarPerfil = () => {
       setLastName(user.lastName);
       setEmail(user.email);
       setPassword(user.password);
+      setAccountType(user.accountType); // Asignamos el tipo de usuario
     }
   }, []);
 
@@ -29,12 +31,12 @@ const EditarPerfil = () => {
 
     if (userIndex !== -1) {
       // Actualizamos los datos del usuario en la lista de usuarios
-      users[userIndex] = { firstName, lastName, email, password };
+      users[userIndex] = { firstName, lastName, email, password, accountType };
       localStorage.setItem('users', JSON.stringify(users)); // Guardamos la lista completa de usuarios actualizada
       localStorage.setItem('loggedInUser', JSON.stringify(users[userIndex])); // Actualizamos el usuario autenticado actual en localStorage
 
       alert('Perfil actualizado exitosamente');
-      navigate('/Inicio'); // Redirige a la página de perfil o donde prefieras
+      navigate('/Inicio'); // Redirige a la página de inicio o donde prefieras
     } else {
       alert('Error: El usuario no fue encontrado.');
     }
@@ -42,7 +44,7 @@ const EditarPerfil = () => {
 
   return (
     <div className="editar-perfil-page">
-      <h2 className="titulo-editar-perfil">EDITAR PERFIL</h2> {/* Cambié el contenido aquí */}
+      <h2 className="titulo-editar-perfil">EDITAR PERFIL</h2>
       <div className="editar-perfil-container">
         <form onSubmit={handleSaveChanges}>
           <label htmlFor="firstName">Nombre</label>
@@ -82,6 +84,14 @@ const EditarPerfil = () => {
             placeholder="Nueva Contraseña (opcional)"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <label>Tipo de Usuario</label>
+          <input
+            type="text"
+            id="userType"
+            value={accountType} // Mostramos el tipo de usuario sin permitir editarlo
+            disabled
           />
 
           <button type="submit" className="boton-guardar-cambios">Guardar Cambios</button>
