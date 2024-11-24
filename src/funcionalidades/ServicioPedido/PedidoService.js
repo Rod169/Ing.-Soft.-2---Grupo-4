@@ -1,8 +1,3 @@
-// Este módulo maneja todas las operaciones relacionadas con los pedidos.
-// Cumple con el principio SOLID de responsabilidad única, ya que
-// se encarga exclusivamente de la lógica y manipulación de pedidos,
-// incluyendo la creación, actualización, eliminación y obtención
-// de pedidos desde el almacenamiento.
 import StorageService from '../ServicioStorage/StorageService.js'; // Importar el StorageService para manejar la persistencia.
 import NotificacionService from '../ServicioNotificacion/NotificacionService.js'; // Importar NotificacionService.
 
@@ -33,6 +28,15 @@ const PedidoService = {
     pedidosExistentes.splice(index, 1);
     // Guarda el array de pedidos actualizado en localStorage.
     StorageService.guardar('pedidos', pedidosExistentes);
+  },
+
+  eliminarPedidoEmpresa: (idPedido) => {
+    // Obtiene los pedidos existentes desde localStorage.
+    const pedidosExistentes = StorageService.obtener('pedidos') || [];
+    // Filtra el pedido por su ID para eliminarlo.
+    const pedidosActualizados = pedidosExistentes.filter(pedido => pedido.id !== idPedido);
+    // Guarda el array de pedidos actualizado en localStorage.
+    StorageService.guardar('pedidos', pedidosActualizados);
   },
 
   registrarParticipacion: (indexPedido, correoUsuario) => {
@@ -82,5 +86,5 @@ const PedidoService = {
   },
 };
 
-// Exporta el objeto PedidoService para que pueda ser utilizado en otras partes de la aplicación.
 export default PedidoService;
+  

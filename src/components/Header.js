@@ -4,11 +4,12 @@ import './Header.css';
 
 const Header = () => {
   const [menuDesplegable, setMenuDesplegable] = useState(false);
-  const [settingsMenu, setSettingsMenu] = useState(false);
+  const [settingsMenu, setSettingsMenu] = useState(false); // Nuevo estado para el menú de settings
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [userType, setUserType] = useState(null);
   const navigate = useNavigate();
   const location = useLocation(); // Hook para obtener la ubicación actual
+
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('loggedInUser'));
@@ -23,7 +24,7 @@ const Header = () => {
   };
 
   const alternarSettingsMenu = () => {
-    setSettingsMenu(!settingsMenu);
+    setSettingsMenu(!settingsMenu); // Alterna el estado de settingsMenu
   };
 
   const handleLogout = () => {
@@ -58,30 +59,18 @@ const Header = () => {
         </div>
       </nav>
       <div className="icons">
-        {/* Ícono de notificaciones */}
-        <img
-          src={process.env.PUBLIC_URL + '/notification-icon.png'}
-          alt="Notifications"
-          className="notification-icon"
-          onClick={() => navigate('/notificaciones')} // Navega directamente a la página de notificaciones
-        />
-        
-        {/* Ícono de configuración */}
+        <img src={process.env.PUBLIC_URL + '/notification-icon.png'} alt="Notifications" />
         <img
           src={process.env.PUBLIC_URL + '/settings-icon.png'}
           alt="Settings"
           className="settings-icon"
-          onClick={alternarSettingsMenu}
+          onClick={alternarSettingsMenu} // Añadir evento de click
         />
-        {settingsMenu && (
+        {settingsMenu && ( // Mostrar el menú desplegable de configuración
           <div className="dropdown-menu">
-            <button className="dropdown-button" onClick={() => navigate('/editar-perfil')}>
-              Editar Perfil
-            </button>
+            <button className="dropdown-button" onClick={() => navigate('/editar-perfil')}>Editar Perfil</button>
           </div>
         )}
-
-        {/* Ícono de usuario */}
         <img
           src={process.env.PUBLIC_URL + '/user-icon.png'}
           alt="User"
@@ -93,19 +82,13 @@ const Header = () => {
             {loggedInUser ? (
               <>
                 <h3>Bienvenido, {loggedInUser}</h3>
-                <button className="dropdown-button" onClick={handleLogout}>
-                  Cerrar Sesión
-                </button>
+                <button className="dropdown-button" onClick={handleLogout}>Cerrar Sesión</button>
               </>
             ) : (
               <>
                 <h3>Bienvenido</h3>
-                <button className="dropdown-button" onClick={() => navigate('/login')}>
-                  Iniciar Sesión
-                </button>
-                <button className="dropdown-button" onClick={() => navigate('/signup')}>
-                  Registrarse
-                </button>
+                <button className="dropdown-button" onClick={() => navigate('/login')}>Iniciar Sesión</button>
+                <button className="dropdown-button" onClick={() => navigate('/signup')}>Registrarse</button>
               </>
             )}
           </div>

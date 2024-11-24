@@ -4,42 +4,27 @@ import './ProductosCliente.css'; // Importa el archivo de estilos CSS
 import PedidoService from '../funcionalidades/ServicioPedido/PedidoService'; // Importa el servicio para gestionar pedidos
 import useBusqueda from '../funcionalidades/Busqueda/useBusqueda'; // Importa el hook personalizado de búsqueda
 
-// Definición del componente funcional ProductosCliente
 const ProductosCliente = () => {
-  // Estado para manejar la lista de pedidos
-  const [pedidos, setPedidos] = useState([]);
-  // Uso del hook personalizado de búsqueda
-  const {
-    terminoBusqueda,
-    setTerminoBusqueda,
-    categoriaSeleccionada,
-    setCategoriaSeleccionada,
-    datosFiltrados,
-    filtrarPorCategoria
-  } = useBusqueda(pedidos);
-  // Estado para manejar la visualización de más pedidos
-  const [mostrarMas, setMostrarMas] = useState(false);
-
+  const [pedidos, setPedidos] = useState([]); // Estado para manejar la lista de pedidos
+  const { terminoBusqueda, setTerminoBusqueda, categoriaSeleccionada, setCategoriaSeleccionada, datosFiltrados, filtrarPorCategoria } = useBusqueda(pedidos); // Hook personalizado de búsqueda
+  const [mostrarMas, setMostrarMas] = useState(false); // Estado para manejar la visualización de más pedidos
   const navigate = useNavigate(); // Hook para manejar la navegación
 
-  // Obtenemos el correo del usuario logueado desde localStorage
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')); // Recupera el usuario logueado
-  const correoUsuario = loggedInUser?.email || ''; // Almacena el correo del usuario logueado o cadena vacía
-
+  // Efecto para cargar los pedidos al montar el componente
   useEffect(() => {
     const pedidosGuardados = PedidoService.obtenerPedidos(); // Obtiene la lista de pedidos desde el servicio
     setPedidos(pedidosGuardados); // Actualiza el estado con los pedidos obtenidos
-  }, []); // El array vacío asegura que esto se ejecute solo una vez al montar el componente
+  }, []); // Array vacío asegura que solo se ejecute al montar el componente
 
   // Función para alternar la visualización de más pedidos
   const alternarMostrarMas = () => {
-    setMostrarMas(!mostrarMas); // Cambia el estado mostrarMas a su valor opuesto
+    setMostrarMas(!mostrarMas); // Cambia el estado mostrarMas
   };
 
-  // Función para redirigir a la vista de ResumenCompra con los detalles del producto
+  // Función para redirigir a la vista de ResumenCompra
   const adquirirProducto = (indexPedido) => {
-    const productoSeleccionado = datosFiltrados[indexPedido]; // Obtén el producto seleccionado
-    navigate('/resumen-compra', { state: { producto: productoSeleccionado } }); // Navega a la vista de resumen de compra con el producto
+    const productoSeleccionado = datosFiltrados[indexPedido]; // Obtiene el producto seleccionado
+    navigate('/resumen-compra', { state: { producto: productoSeleccionado, index: indexPedido } }); // Navega a la vista de resumen de compra
   };
 
   // Determina qué pedidos mostrar: todos o solo los primeros 4
@@ -51,36 +36,34 @@ const ProductosCliente = () => {
         <div className="search-bar"> {/* Barra de búsqueda */}
           <input
             type="text"
-            placeholder="Buscar..." // Texto de sugerencia
-            value={terminoBusqueda} // Valor del input controlado por el estado
-            onChange={(e) => setTerminoBusqueda(e.target.value)} // Actualiza el estado al cambiar el valor
+            placeholder="Buscar..."
+            value={terminoBusqueda}
+            onChange={(e) => setTerminoBusqueda(e.target.value)}
           />
-          <span className="search-icon">&#128269;</span> {/* Icono de búsqueda */}
+          <span className="search-icon">&#128269;</span>
         </div>
-        <select value={categoriaSeleccionada} onChange={(e) => setCategoriaSeleccionada(e.target.value)}> {/* Selector de categorías */}
-          <option value="">Categorías</option> {/* Opción por defecto */}
-          <option value="vegetales">Vegetales</option> {/* Opción de categoría */}
-          <option value="granos">Granos</option> {/* Opción de categoría */}
-          <option value="frutas">Frutas</option> {/* Opción de categoría */}
+        <select value={categoriaSeleccionada} onChange={(e) => setCategoriaSeleccionada(e.target.value)}>
+          <option value="">Categorías</option>
+          <option value="vegetales">Vegetales</option>
+          <option value="granos">Granos</option>
+          <option value="frutas">Frutas</option>
         </select>
-        <button onClick={filtrarPorCategoria}>Buscar</button> {/* Botón para ejecutar el filtrado */}
+        <button onClick={filtrarPorCategoria}>Buscar</button>
       </div>
 
-      <div className="header-productos"> {/* Encabezado de la sección de productos */}
-        <h1 className="titulo">Productos</h1> {/* Título principal */}
-        <button className="btn-ver-pedidos"> {/* Botón para ver pedidos */}
-          Ver pedidos
-        </button>
+      <div className="header-productos">
+        <h1 className="titulo">Productos</h1>
+        <button className="btn-ver-pedidos">Ver pedidos</button>
       </div>
-      <h2 className="titulo-productos-destacados">Productos Destacados</h2> {/* Título para productos destacados */}
+      <h2 className="titulo-productos-destacados">Productos Destacados</h2>
 
-      <div className="productos-grid"> {/* Contenedor para la cuadrícula de productos */}
-        {pedidosMostrar.length > 0 ? ( // Comprueba si hay pedidos para mostrar
-          pedidosMostrar.map((pedido, index) => ( // Mapea cada pedido a un componente de tarjeta
-            <div key={index} className="producto-card"> {/* Tarjeta de pedido */}
-              <img src={pedido.imagen} alt={pedido.producto} /> {/* Imagen del producto */}
-              <h3>{pedido.producto}</h3> {/* Título del producto */}
-              <div className="descripcion-producto"> {/* Descripción del producto */}
+      <div className="productos-grid">
+        {pedidosMostrar.length > 0 ? (
+          pedidosMostrar.map((pedido, index) => (
+            <div key={index} className="producto-card">
+              <img src={pedido.imagen} alt={pedido.producto} />
+              <h3>{pedido.producto}</h3>
+              <div className="descripcion-producto">
                 <p>
                   Empresa: {pedido.empresa}
                   <br />
@@ -91,23 +74,23 @@ const ProductosCliente = () => {
                   Fecha: {pedido.fechaPublicacion}
                 </p>
               </div>
-              <div className="acciones-producto"> {/* Contenedor para las acciones del producto */}
-                <button onClick={() => adquirirProducto(index)}>Adquirir</button> {/* Botón para adquirir */}
-                <button onClick={() => alert(`Participantes: ${PedidoService.obtenerParticipantes(index).join(', ')}`)}> {/* Botón para ver participantes */}
+              <div className="acciones-producto">
+                <button onClick={() => adquirirProducto(index)}>Adquirir</button>
+                <button onClick={() => alert(`Participantes: ${PedidoService.obtenerParticipantes(index).join(', ')}`)}>
                   Ver participantes
                 </button>
               </div>
             </div>
           ))
         ) : (
-          <p>No hay productos disponibles.</p> // Mensaje si no hay productos
+          <p>No hay productos disponibles.</p>
         )}
       </div>
 
-      <div className="ver-mas-container"> {/* Contenedor para el botón "Ver más" */}
-        {datosFiltrados.length > 4 && ( // Solo muestra el botón si hay más de 4 pedidos
+      <div className="ver-mas-container">
+        {datosFiltrados.length > 4 && (
           <button className="ver-mas" onClick={alternarMostrarMas}>
-            {mostrarMas ? 'Ver menos' : 'Ver más'} {/* Cambia el texto del botón según el estado mostrarMas */}
+            {mostrarMas ? 'Ver menos' : 'Ver más'}
           </button>
         )}
       </div>
@@ -115,4 +98,4 @@ const ProductosCliente = () => {
   );
 };
 
-export default ProductosCliente; // Exporta el componente para su uso en otras partes de la aplicación
+export default ProductosCliente;
