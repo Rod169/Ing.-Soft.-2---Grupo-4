@@ -16,6 +16,8 @@ import PedidosProveedor from './components/PedidosProveedor'; // Vista de pedido
 import PedidosEmpresa from './components/PedidosEmpresa'; // Vista de pedidos desde la perspectiva de una empresa.
 import ProductosEmpresa from './components/ProductosEmpresa'; // Vista de productos desde la perspectiva de un empresa.
 import ProductosCliente from './components/ProductosCliente'; // Vista de productos desde la perspectiva de un cliente.
+import ResumenCompra from './components/ResumenCompra'; // Vista del resumen de compra.
+import PasarelaPago from './components/PasarelaPago'; // Vista de la pasarela de pago.
 import Inicio from './components/Inicio'; // Página de inicio.
 import CrearContrato from './components/CrearContrato'; // Página para crear un contrato.
 import CrearPedido from './components/CrearPedido'; // Página para crear un pedido.
@@ -61,6 +63,12 @@ function App() {
 
           {/* Ruta para ver los pedidos del proveedor */}
           <Route path="/productos-cliente" element={<ProductosCliente />} />
+
+          {/* Ruta para ver el resumen de compra */}
+          <Route path="/resumen-compra" element={<ResumenCompra />} />
+
+          {/* Ruta para ver la pasarela de pago */}
+          <Route path="/pasarela-pago" element={<PasarelaPago />} />
 
           {/* Ruta para la pantalla de creación de contratos */}
           <Route path="/crear-contrato" element={<CrearContrato />} />
