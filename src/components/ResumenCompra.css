@@ -1,0 +1,116 @@
+/* Estilos exclusivos para la página de Resumen de Compra */
+.resumen-compra-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .titulo-resumen {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estructura principal */
+  .resumen-content {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Sección izquierda: Producto */
+  .resumen-izquierda {
+    flex: 2; /* Ocupa más espacio */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .resumen-imagen {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .resumen-info {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .resumen-info p {
+    margin: 5px 0;
+  }
+  
+  .resumen-info strong {
+    color: #333;
+  }
+  
+  /* Sección derecha: Resumen del pedido */
+  .resumen-derecha {
+    flex: 1; /* Ocupa menos espacio */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .titulo-resumen-pedido {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .resumen-derecha p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .resumen-derecha strong {
+    color: #333;
+  }
+  
+  /* Botones de acción */
+  .resumen-acciones {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .boton-confirmar {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .boton-confirmar:hover {
+    background-color: #218838;
+  }
+  
+  .boton-cancelar {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .boton-cancelar:hover {
+    background-color: #c82333;
+  }
+  
