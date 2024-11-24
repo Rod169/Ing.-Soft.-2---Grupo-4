@@ -1,0 +1,57 @@
+.pago-alternativo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Asegura espacio para el contenido y empuja el footer hacia abajo */
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  .pago-alternativo-titulo {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .metodos-pago {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Separación adecuada entre los métodos de pago */
+    flex-wrap: wrap; /* Asegura que los elementos sean responsivos */
+  }
+  
+  .metodo-pago {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+  }
+  
+  .metodo-pago img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+  
+  .metodo-pago button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .metodo-pago button:hover {
+    background-color: #0056b3;
+  }
+  
