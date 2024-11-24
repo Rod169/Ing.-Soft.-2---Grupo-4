@@ -18,6 +18,8 @@ import ProductosEmpresa from './components/ProductosEmpresa'; // Vista de produc
 import ProductosCliente from './components/ProductosCliente'; // Vista de productos desde la perspectiva de un cliente.
 import ResumenCompra from './components/ResumenCompra'; // Vista del resumen de compra.
 import PasarelaPago from './components/PasarelaPago'; // Vista de la pasarela de pago.
+import PagoAlternativo from './components/PagoAlternativo'; // Vista del pago alternativo.
+import QrPago from './components/QrPago'; // Vista del QR de pago (Yape/Plin).
 import Inicio from './components/Inicio'; // Página de inicio.
 import CrearContrato from './components/CrearContrato'; // Página para crear un contrato.
 import CrearPedido from './components/CrearPedido'; // Página para crear un pedido.
@@ -69,6 +71,12 @@ function App() {
 
           {/* Ruta para ver la pasarela de pago */}
           <Route path="/pasarela-pago" element={<PasarelaPago />} />
+
+          {/* Ruta para ver la pasarela de pago alternativo */}
+          <Route path="/pago-alternativo" element={<PagoAlternativo />} />
+
+          {/* Ruta para ver el QR de pago con Yape o Plin */}
+          <Route path="/qr-pago" element={<QrPago />} />
 
           {/* Ruta para la pantalla de creación de contratos */}
           <Route path="/crear-contrato" element={<CrearContrato />} />
