@@ -10,13 +10,39 @@ const NotificacionService = {
     return StorageService.obtener('notificaciones') || [];
   },
 
-  agregarNotificacion: (empresa, correoUsuario, producto) => {
+  agregarNotificacion: (contexto, correoUsuario, detalle, tipo = 'general', nombreUsuario = null) => {
     // Obtiene las notificaciones existentes desde localStorage, o un array vacío si no hay.
     const notificacionesExistentes = StorageService.obtener('notificaciones') || [];
-    // Crea un nuevo mensaje de notificación.
-    const nuevaNotificacion = `El usuario ${correoUsuario} ha participado en tu contrato de ${producto}.`;
+    
+    // Genera un ticket único si es para soporte
+    const ticket = tipo === 'soporte' ? Math.floor(100000 + Math.random() * 900000) : null;
+
+    // Construye el mensaje según el tipo de notificación
+    let nuevaNotificacion;
+    if (tipo === 'contrato') {
+      nuevaNotificacion = {
+        contexto,
+        mensaje: `El usuario ${correoUsuario} ha participado en tu contrato de ${detalle}.`,
+        tipo,
+      };
+    } else if (tipo === 'soporte') {
+      nuevaNotificacion = {
+        contexto,
+        mensaje: `Estimad@ ${nombreUsuario}, tu solicitud de soporte con ticket #${ticket} ha sido recibida por nosotros.`,
+        tipo,
+        ticket, // Incluye el ticket solo si es de soporte
+      };
+    } else {
+      nuevaNotificacion = {
+        contexto,
+        mensaje: `El usuario ${correoUsuario} ha generado una acción en ${contexto}: ${detalle}.`,
+        tipo,
+      };
+    }
+
     // Agrega la nueva notificación al array de notificaciones existentes.
-    notificacionesExistentes.push({ empresa, mensaje: nuevaNotificacion });
+    notificacionesExistentes.push(nuevaNotificacion);
+
     // Guarda el array de notificaciones actualizado en localStorage.
     StorageService.guardar('notificaciones', notificacionesExistentes);
   },
@@ -25,11 +51,10 @@ const NotificacionService = {
     // Obtiene las notificaciones existentes desde localStorage.
     const notificacionesExistentes = StorageService.obtener('notificaciones') || [];
     // Filtra las notificaciones para eliminar las que pertenecen a la empresa especificada.
-    const notificacionesFiltradas = notificacionesExistentes.filter(notificacion => notificacion.empresa !== empresa);
+    const notificacionesFiltradas = notificacionesExistentes.filter(notificacion => notificacion.contexto !== empresa);
     // Guarda el array de notificaciones filtrado en localStorage.
     StorageService.guardar('notificaciones', notificacionesFiltradas);
   },
 };
 
-// Exporta el objeto NotificacionService para que pueda ser utilizado en otras partes de la aplicación.
 export default NotificacionService;
