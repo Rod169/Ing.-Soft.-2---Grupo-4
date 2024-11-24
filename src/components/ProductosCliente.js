@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'; // Importa React y hooks useState y useEffect
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate para manejar la navegación
 import './ProductosCliente.css'; // Importa el archivo de estilos CSS
 import PedidoService from '../funcionalidades/ServicioPedido/PedidoService'; // Importa el servicio para gestionar pedidos
 import useBusqueda from '../funcionalidades/Busqueda/useBusqueda'; // Importa el hook personalizado de búsqueda
@@ -19,6 +20,8 @@ const ProductosCliente = () => {
   // Estado para manejar la visualización de más pedidos
   const [mostrarMas, setMostrarMas] = useState(false);
 
+  const navigate = useNavigate(); // Hook para manejar la navegación
+
   // Obtenemos el correo del usuario logueado desde localStorage
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')); // Recupera el usuario logueado
   const correoUsuario = loggedInUser?.email || ''; // Almacena el correo del usuario logueado o cadena vacía
@@ -33,12 +36,10 @@ const ProductosCliente = () => {
     setMostrarMas(!mostrarMas); // Cambia el estado mostrarMas a su valor opuesto
   };
 
-  // Función para adquirir un producto
+  // Función para redirigir a la vista de ResumenCompra con los detalles del producto
   const adquirirProducto = (indexPedido) => {
-    PedidoService.registrarParticipacion(indexPedido, correoUsuario); // Registra la adquisición del producto
-    alert(`Has adquirido el producto ${datosFiltrados[indexPedido].producto}`); // Muestra una alerta de adquisición
-    const pedidosActualizados = PedidoService.obtenerPedidos(); // Vuelve a obtener la lista de pedidos actualizada
-    setPedidos(pedidosActualizados); // Actualiza la lista de pedidos en la interfaz
+    const productoSeleccionado = datosFiltrados[indexPedido]; // Obtén el producto seleccionado
+    navigate('/resumen-compra', { state: { producto: productoSeleccionado } }); // Navega a la vista de resumen de compra con el producto
   };
 
   // Determina qué pedidos mostrar: todos o solo los primeros 4
