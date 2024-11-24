@@ -61,12 +61,20 @@ const PasarelaPago = () => {
   const total = subtotal + envio + igv;
 
   const handleConfirmarPago = () => {
-    // Eliminar el producto tanto de la lista de cliente como de la lista de empresa
-    PedidoService.eliminarPedido(indexProducto); // Elimina de la vista de cliente
-    PedidoService.eliminarPedidoEmpresa(producto.id); // Elimina de la vista de empresa
+    try {
+      PedidoService.eliminarPedidoPorId(producto.id); // Elimina de cliente
+      PedidoService.eliminarPedidoEmpresaPorId(producto.id); // Elimina de empresa
 
-    alert('Pago confirmado'); // Mensaje de confirmación
-    navigate('/productos-cliente'); // Redirige a la página de productos cliente
+      alert('Pago confirmado'); // Mensaje de confirmación
+      navigate('/productos-cliente'); // Redirige a la página de productos cliente
+    } catch (error) {
+      console.error('Error al procesar el pago:', error);
+      alert('Ocurrió un problema al procesar el pago.');
+    }
+  };
+
+  const handlePagoAlternativo = () => {
+    navigate('/pago-alternativo', { state: { producto, index: indexProducto } });
   };
 
   return (
@@ -141,11 +149,6 @@ const PasarelaPago = () => {
           <img src={process.env.PUBLIC_URL + '/bcp.png'} alt="BCP" />
           <img src={process.env.PUBLIC_URL + '/americanexpress.png'} alt="Amex" />
         </div>
-
-        <div className="iconos-plataformas">
-          <img src={process.env.PUBLIC_URL + '/yape.png'} alt="Yape" />
-          <img src={process.env.PUBLIC_URL + '/plin.png'} alt="Plin" />
-        </div>
       </div>
 
       {/* Sección derecha */}
@@ -168,10 +171,7 @@ const PasarelaPago = () => {
           <button className="boton-confirmar" onClick={handleConfirmarPago}>
             Confirmar Pago
           </button>
-          <button
-            className="boton-otro-metodo"
-            onClick={() => alert('Seleccione otro método de pago')}
-          >
+          <button className="boton-otro-metodo" onClick={handlePagoAlternativo}>
             Pagar con otro método
           </button>
         </div>
